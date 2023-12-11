@@ -6,20 +6,12 @@ extends Control
 var timeCompare
 var timeNow
 
-# Framerate (want to replace with user-selectable at some point)
-var framerate = 144.0
-
-# Coordinate Configuration
-var xStart
-var xEnd
-var TotalDistance
-
 # Frame Calculation
 var timeStart = 180.0
 
 # Ghost Spawn Dictionary
 # Demon: 120
-# Ghost: 60
+# Ghost: 90
 # Spirit: 0
 
 @onready var dictGhosts = {
@@ -43,10 +35,10 @@ var currTimeString: String = ""
 # Node References
 @onready var BeginPlaceholder = $BeginPlaceholder
 @onready var SpiritPlaceholder = $SpiritPlaceholder
-@onready var NodeTimeIndicator = get_node("NodeTimeIndicator")
-@onready var NodeTimeCurrent = get_node("NodeTimeIndicator/TimeCurrent")
-@onready var NodeStartButton = get_node("StartButton")
-@onready var NodeGhostTimerEnded = get_node("GhostTimerEnded")
+@onready var NodeTimeIndicator = $NodeTimeIndicator
+@onready var NodeTimeCurrent = $NodeTimeIndicator/TimeCurrent
+@onready var NodeStartButton = $StartButton
+@onready var NodeGhostTimerEnded = $GhostTimerEnded
 
 # Sound
 @onready var TimerAudio = $TimerAudio	
@@ -76,6 +68,10 @@ var currTimeString: String = ""
 	"count_1": count_1	
 }
 
+var xStart
+var xEnd
+var TotalDistance
+
 func _ready():
 	CountdownTimer.wait_time = timeStart
 	
@@ -97,64 +93,47 @@ func _on_button_pressed():
 		NodeStartButton.text = "Stop Timer"
 		NodeGhostTimerEnded.text = ""
 		currGhost = "Demon"
+		currBreakpoint = dictGhosts[currGhost]
 	else:
 		NodeStartButton.text = "Start Timer"
 
 func _process(delta):
 	if startTimer == true:
 		
-		currBreakpoint = dictGhosts[currGhost]
-		
 		timeCompare = currTime
 		currTime = CountdownTimer.time_left
-				
+		
 		if int(timeCompare) != int(currTime):
-			print(int(currTime))
-			print(currBreakpoint+10)
-			checkTime()
+			checkTime(int(currTime)+1)
 		
-		currMin = abs(int(currTime / 60))
-		currSecond = abs(int(currTime) % 60)
-		currMS = abs(int((currTime - int(currTime)) * 1000))
+		UpdateTimeString()
 		
-		var negativestring = ""
-		if currTime < 0:
-			negativestring = "- "
-		
-		currTimeString = negativestring + str(currMin).pad_zeros(1) + ":" + str(currSecond).pad_zeros(2) + ":" + str(currMS).left(2)
-		
-		NodeTimeCurrent.text = currTimeString
-		
-		print(xStart)
-		print(timeStart-currTime)
-		print(TotalDistance)
-		print((timeStart-currTime)*TotalDistance)
 		if currTime > 0:
 			NodeTimeIndicator.global_position.x = xEnd + (currTime/timeStart)*TotalDistance
 		
-func checkTime():
-	if int(currTime) == currBreakpoint + 12:
+func checkTime(currSecond):
+	if currSecond == currBreakpoint + 12:
 		TimerAudio.stream = dictSounds["start_"+currGhost]
 		TimerAudio.play()
-	if int(currTime) == currBreakpoint + 10:
+	elif currSecond == currBreakpoint + 10:
 		TimerAudio.stream = count_10
 		TimerAudio.play()
-	elif int(currTime) == currBreakpoint + 5:
+	elif currSecond == currBreakpoint + 5:
 		TimerAudio.stream = count_5
 		TimerAudio.play()
-	elif int(currTime) == currBreakpoint + 4:
+	elif currSecond == currBreakpoint + 4:
 		TimerAudio.stream = count_4
 		TimerAudio.play()
-	elif int(currTime) == currBreakpoint + 3:
+	elif currSecond == currBreakpoint + 3:
 		TimerAudio.stream = count_3
 		TimerAudio.play()
-	elif int(currTime) == currBreakpoint + 2:
+	elif currSecond == currBreakpoint + 2:
 		TimerAudio.stream = count_2
 		TimerAudio.play()
-	elif int(currTime) == currBreakpoint + 1:
+	elif currSecond == currBreakpoint + 1:
 		TimerAudio.stream = count_1
 		TimerAudio.play()
-	elif int(currTime) == currBreakpoint:
+	elif currSecond == currBreakpoint:
 			print(currGhost + " Breakpoint")
 			NodeGhostTimerEnded.text = currGhost + " Timer Ended"
 			
@@ -164,4 +143,18 @@ func checkTime():
 				currGhost = "Spirit"
 			else:
 				return
+				
+			currBreakpoint = dictGhosts[currGhost]
 
+func UpdateTimeString():
+	currMin = abs(int(currTime / 60))
+	currSecond = abs(int(currTime) % 60)
+	currMS = abs(int((currTime - int(currTime)) * 1000))
+	
+	var negativestring = ""
+	if currTime < 0:
+		negativestring = "- "
+	
+	currTimeString = negativestring + str(currMin).pad_zeros(1) + ":" + str(currSecond).pad_zeros(2) + ":" + str(currMS).left(2)
+	
+	NodeTimeCurrent.text = currTimeString
