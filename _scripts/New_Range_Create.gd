@@ -23,34 +23,34 @@ extends Control
 
 @onready var dictScene = {
 	"1": "res://Scenes/Distance_Scenes/1m.tscn",
-	"2.5": "res://Scenes/Distance_Scenes/2.5m.tscn",
-	"3": "res://Scenes/Distance_Scenes/3m.tscn",
-	"4": "res://Scenes/Distance_Scenes/4m.tscn",
-	"4.5": "res://Scenes/Distance_Scenes/4_5m.tscn",
-	"5": "res://Scenes/Distance_Scenes/5m.tscn",
-	"6": "res://Scenes/Distance_Scenes/6m.tscn",
-	"7.5": "res://Scenes/Distance_Scenes/7_5m.tscn",
-	"10": "res://Scenes/Distance_Scenes/10m.tscn",
-	"12": "res://Scenes/Distance_Scenes/12m.tscn",
-	"15": "res://Scenes/Distance_Scenes/15m.tscn"	
+	"2.5 (Yokai Hearing)": "res://Scenes/Distance_Scenes/2.5m.tscn",
+	"3 (Crucifix Lv 1)": "res://Scenes/Distance_Scenes/3m.tscn",
+	"4 (Crucifix Lv 2, Onryo Firelight)": "res://Scenes/Distance_Scenes/4m.tscn",
+	"4.5 (Crucifix 1 - Demon)": "res://Scenes/Distance_Scenes/4_5m.tscn",
+	"5 (Cruficix 3)": "res://Scenes/Distance_Scenes/5m.tscn",
+	"6 (Crucifix 2 - Demon)": "res://Scenes/Distance_Scenes/6m.tscn",
+	"7.5 (Cruficix 3 - Demon)": "res://Scenes/Distance_Scenes/7_5m.tscn",
+	"10 (Normal Hearing)": "res://Scenes/Distance_Scenes/10m.tscn",
+	"12 (Myling Footstep)": "res://Scenes/Distance_Scenes/12m.tscn",
+	"15 (Raiju Electronic Hearing)": "res://Scenes/Distance_Scenes/15m.tscn"	
 }
 
 
 
 func _on_pressed():
 	var selected_range_index = RangeDropdown.selected
-	selected_range_value = float(RangeDropdown.get_item_text(selected_range_index))
+	selected_range_value = RangeDropdown.get_item_text(selected_range_index)
 		
 	LoadRange()
 
 func LoadRange():
-	#var sceneRange = load("res://Scenes/Distance_Scenes/1m.tscn")
-	var distToLoad = dictScene[str(selected_range_value)]
+	
+	var distToLoad = dictScene[selected_range_value]
 	var sceneRange = load(distToLoad)
 	var instRange = sceneRange.instantiate()
 	
 	RangeCircles.add_child(instRange)
-	#instRange.global_scale = Vector2(selected_range_value*2,selected_range_value*2)
+	
 	instRange.global_position = Vector2(800,400)
 	
 	instRange.modulate = RangeColor.color

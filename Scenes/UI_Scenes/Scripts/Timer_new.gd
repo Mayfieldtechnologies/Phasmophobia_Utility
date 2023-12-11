@@ -4,7 +4,6 @@ extends Control
 # Get Timer
 @onready var CountdownTimer = $timerCountdown
 var timeCompare
-var timeNow
 
 # Frame Calculation
 var timeStart = 180.0
@@ -84,20 +83,13 @@ func _ready():
 func _on_button_pressed():
 	CountdownTimer.start()
 	
-	
 	startTimer = !startTimer
 	if startTimer == true:
-		NodeTimeIndicator.position.x = xStart
-		currTime = timeStart
-		timeNow = currTime
-		NodeStartButton.text = "Stop Timer"
-		NodeGhostTimerEnded.text = ""
-		currGhost = "Demon"
-		currBreakpoint = dictGhosts[currGhost]
+		ResetTimer()
 	else:
 		NodeStartButton.text = "Start Timer"
 
-func _process(delta):
+func _process(_delta):
 	if startTimer == true:
 		
 		timeCompare = currTime
@@ -111,29 +103,29 @@ func _process(delta):
 		if currTime > 0:
 			NodeTimeIndicator.global_position.x = xEnd + (currTime/timeStart)*TotalDistance
 		
-func checkTime(currSecond):
-	if currSecond == currBreakpoint + 12:
+func checkTime(currCheck):
+	if currCheck == currBreakpoint + 12:
 		TimerAudio.stream = dictSounds["start_"+currGhost]
 		TimerAudio.play()
-	elif currSecond == currBreakpoint + 10:
+	elif currCheck == currBreakpoint + 10:
 		TimerAudio.stream = count_10
 		TimerAudio.play()
-	elif currSecond == currBreakpoint + 5:
+	elif currCheck == currBreakpoint + 5:
 		TimerAudio.stream = count_5
 		TimerAudio.play()
-	elif currSecond == currBreakpoint + 4:
+	elif currCheck == currBreakpoint + 4:
 		TimerAudio.stream = count_4
 		TimerAudio.play()
-	elif currSecond == currBreakpoint + 3:
+	elif currCheck == currBreakpoint + 3:
 		TimerAudio.stream = count_3
 		TimerAudio.play()
-	elif currSecond == currBreakpoint + 2:
+	elif currCheck == currBreakpoint + 2:
 		TimerAudio.stream = count_2
 		TimerAudio.play()
-	elif currSecond == currBreakpoint + 1:
+	elif currCheck == currBreakpoint + 1:
 		TimerAudio.stream = count_1
 		TimerAudio.play()
-	elif currSecond == currBreakpoint:
+	elif currCheck == currBreakpoint:
 			print(currGhost + " Breakpoint")
 			NodeGhostTimerEnded.text = currGhost + " Timer Ended"
 			
@@ -147,6 +139,7 @@ func checkTime(currSecond):
 			currBreakpoint = dictGhosts[currGhost]
 
 func UpdateTimeString():
+	# Parse Min, Sec, MS from seconds
 	currMin = abs(int(currTime / 60))
 	currSecond = abs(int(currTime) % 60)
 	currMS = abs(int((currTime - int(currTime)) * 1000))
@@ -158,3 +151,18 @@ func UpdateTimeString():
 	currTimeString = negativestring + str(currMin).pad_zeros(1) + ":" + str(currSecond).pad_zeros(2) + ":" + str(currMS).left(2)
 	
 	NodeTimeCurrent.text = currTimeString
+
+func ResetTimer():
+	# Reset Time Indicator
+	NodeTimeIndicator.position.x = xStart
+	
+	# Reset currTime
+	currTime = timeStart
+	
+	# Reset Labels
+	NodeStartButton.text = "Stop Timer"
+	NodeGhostTimerEnded.text = ""
+	
+	# Reset Ghost Reference
+	currGhost = "Demon"
+	currBreakpoint = dictGhosts[currGhost]

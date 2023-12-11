@@ -13,10 +13,10 @@ script = ExtResource("1_5h7tm")
 [node name="MapSelect" type="Node" parent="."]
 
 [node name="MapDropdownButton" type="OptionButton" parent="MapSelect"]
-offset_left = 64.0
-offset_top = 223.0
-offset_right = 216.0
-offset_bottom = 254.0
+offset_left = 32.0
+offset_top = 215.0
+offset_right = 184.0
+offset_bottom = 246.0
 item_count = 1
 selected = 0
 popup/item_0/text = "6 Tanglewood"
@@ -24,83 +24,83 @@ popup/item_0/id = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="MapLoad" type="Button" parent="MapSelect"]
-offset_left = 224.0
-offset_top = 223.0
-offset_right = 270.0
-offset_bottom = 254.0
+offset_left = 192.0
+offset_top = 215.0
+offset_right = 238.0
+offset_bottom = 246.0
 text = "Load"
 script = ExtResource("1_hxip5")
 metadata/_edit_use_anchors_ = true
 
 [node name="MapSelectHeader" type="RichTextLabel" parent="MapSelect"]
-offset_left = 65.0
-offset_top = 192.0
-offset_right = 159.0
-offset_bottom = 219.0
+offset_left = 33.0
+offset_top = 184.0
+offset_right = 127.0
+offset_bottom = 211.0
 text = "Select Map"
 metadata/_edit_use_anchors_ = true
 
 [node name="RangeSelect" type="Node" parent="."]
 
 [node name="RangeDropdown" type="OptionButton" parent="RangeSelect"]
-offset_left = 65.0
-offset_top = 322.0
-offset_right = 156.0
-offset_bottom = 353.0
+offset_left = 33.0
+offset_top = 314.0
+offset_right = 319.0
+offset_bottom = 345.0
 item_count = 10
 selected = 0
-popup/item_0/text = "2.5"
+popup/item_0/text = "2.5 (Yokai Hearing)"
 popup/item_0/id = 0
-popup/item_1/text = "3"
+popup/item_1/text = "3 (Crucifix Lv 1)"
 popup/item_1/id = 1
-popup/item_2/text = "4"
+popup/item_2/text = "4 (Crucifix Lv 2, Onryo Firelight)"
 popup/item_2/id = 2
-popup/item_3/text = "4.5"
+popup/item_3/text = "4.5 (Crucifix 1 - Demon)"
 popup/item_3/id = 3
-popup/item_4/text = "5"
+popup/item_4/text = "5 (Cruficix 3)"
 popup/item_4/id = 4
-popup/item_5/text = "6"
+popup/item_5/text = "6 (Crucifix 2 - Demon)"
 popup/item_5/id = 5
-popup/item_6/text = "7.5"
+popup/item_6/text = "7.5 (Cruficix 3 - Demon)"
 popup/item_6/id = 6
-popup/item_7/text = "10"
+popup/item_7/text = "10 (Normal Hearing)"
 popup/item_7/id = 7
-popup/item_8/text = "12"
+popup/item_8/text = "12 (Myling Footstep)"
 popup/item_8/id = 8
-popup/item_9/text = "15"
+popup/item_9/text = "15 (Raiju Electronic Hearing)"
 popup/item_9/id = 9
 metadata/_edit_use_anchors_ = true
 
+[node name="RangeSelectHeader" type="RichTextLabel" parent="RangeSelect"]
+offset_left = 33.0
+offset_top = 280.0
+offset_right = 189.0
+offset_bottom = 308.0
+text = "Create Range Circle"
+metadata/_edit_use_anchors_ = true
+
 [node name="RangeCreate" type="Button" parent="RangeSelect"]
-offset_left = 207.0
-offset_top = 322.0
-offset_right = 270.0
-offset_bottom = 353.0
+offset_left = 256.0
+offset_top = 352.0
+offset_right = 319.0
+offset_bottom = 383.0
 text = "Create"
 script = ExtResource("3_0a2ed")
 metadata/_edit_use_anchors_ = true
 
-[node name="RangeSelectHeader" type="RichTextLabel" parent="RangeSelect"]
-offset_left = 65.0
-offset_top = 288.0
-offset_right = 221.0
-offset_bottom = 316.0
-text = "Create Range Circle"
-metadata/_edit_use_anchors_ = true
-
 [node name="RangeColor" type="ColorPickerButton" parent="RangeSelect"]
-offset_left = 164.0
-offset_top = 322.0
-offset_right = 199.0
-offset_bottom = 354.0
+offset_left = 208.0
+offset_top = 352.0
+offset_right = 243.0
+offset_bottom = 384.0
 color = Color(1, 1, 1, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="RangeClear" type="Button" parent="RangeSelect"]
-offset_left = 208.0
-offset_top = 360.0
-offset_right = 270.0
-offset_bottom = 391.0
+offset_left = 32.0
+offset_top = 352.0
+offset_right = 94.0
+offset_bottom = 383.0
 text = "Clear"
 script = ExtResource("3_ccbbd")
 metadata/_edit_use_anchors_ = true
@@ -119,10 +119,10 @@ texture = ExtResource("3_7uetf")
 metadata/_edit_lock_ = true
 
 [node name="CountdownTimer" parent="." instance=ExtResource("6_3hylg")]
-offset_left = 64.0
-offset_top = 56.0
-offset_right = 64.0
-offset_bottom = 56.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 24.0
 
 [node name="locMapSpawn" type="Node" parent="."]
 metadata/global_position = Vector2(800, 500)

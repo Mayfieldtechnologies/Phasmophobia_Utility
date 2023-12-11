@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bw7pr5640layh" path="res://Scenes/UI_Scenes/Sprites/TimePlaceholder.png" id="3_rfde4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2vvqo"]
-font_size = 24
+font_size = 18
 
 [node name="CountdownTimer" type="Control"]
 layout_mode = 3
@@ -20,8 +20,8 @@ script = ExtResource("1_dpvdl")
 
 [node name="SmudgeTimerHeader" type="Label" parent="."]
 layout_mode = 0
-offset_right = 167.0
-offset_bottom = 34.0
+offset_right = 126.0
+offset_bottom = 26.0
 text = "Smudge Timer"
 label_settings = SubResource("LabelSettings_2vvqo")
 
