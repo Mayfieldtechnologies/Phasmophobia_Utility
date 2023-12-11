@@ -1,0 +1,11 @@
+Sprite2D
+Node
+Timer
+AudioStreamPlayer2D
+Button
+Node2D
+RichTextLabel
+ColorPickerButton
+CollisionShape2D
+Area2D
+OptionButton

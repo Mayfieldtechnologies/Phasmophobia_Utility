@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://1ne4j5bwrj36"]
+
+[ext_resource type="Script" path="res://Scenes/Distance_Scenes/1m_script.gd" id="1_58ose"]
+[ext_resource type="Texture2D" uid="uid://c2ltru5amfmf6" path="res://Distances/7.5m.png" id="2_isxhf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_43v1g"]
+radius = 17.2627
+
+[node name="7_5m" type="Node2D" groups=["Circle"]]
+z_index = 3
+script = ExtResource("1_58ose")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_isxhf")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_43v1g")
+
+[connection signal="input_event" from="Sprite2D/Area2D" to="." method="_on_area_2d_input_event"]

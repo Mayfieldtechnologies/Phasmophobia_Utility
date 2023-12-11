@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://u656in1y4mvu"]
+
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/Timer_new.gd" id="1_dpvdl"]
+[ext_resource type="Texture2D" uid="uid://cpg80k1507rv" path="res://Scenes/UI_Scenes/Sprites/TimeBar.png" id="1_flyxk"]
+[ext_resource type="Texture2D" uid="uid://cqkqppycqfmdj" path="res://Scenes/UI_Scenes/Sprites/TimeIndicator.png" id="2_7agcf"]
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/StartButton.gd" id="3_6dh53"]
+[ext_resource type="Texture2D" uid="uid://bw7pr5640layh" path="res://Scenes/UI_Scenes/Sprites/TimePlaceholder.png" id="3_rfde4"]
+
+[node name="CountdownTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dpvdl")
+
+[node name="TimeBar" type="Sprite2D" parent="."]
+position = Vector2(130, 45)
+texture = ExtResource("1_flyxk")
+
+[node name="NodeTimeIndicator" type="Node2D" parent="."]
+position = Vector2(218, 45)
+
+[node name="TimeIndicator" type="Sprite2D" parent="NodeTimeIndicator"]
+z_index = 2
+scale = Vector2(0.325, 1)
+texture = ExtResource("2_7agcf")
+
+[node name="TimeCurrent" type="RichTextLabel" parent="NodeTimeIndicator"]
+offset_left = -26.0
+offset_top = -39.0
+offset_right = 44.0
+offset_bottom = -15.0
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "3:00:00"
+
+[node name="BeginPlaceholder" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(218, 45)
+scale = Vector2(0.325, 1)
+texture = ExtResource("3_rfde4")
+
+[node name="DemonPlaceholder" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(154.064, 45)
+scale = Vector2(0.325, 1)
+texture = ExtResource("3_rfde4")
+
+[node name="StandardPlaceholder" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(122.096, 45)
+scale = Vector2(0.325, 1)
+texture = ExtResource("3_rfde4")
+
+[node name="SpiritPlaceholder" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(25, 45)
+scale = Vector2(0.325, 1)
+texture = ExtResource("3_rfde4")
+
+[node name="3Min" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 65.0
+offset_right = 256.0
+offset_bottom = 89.0
+theme_override_font_sizes/normal_font_size = 12
+text = "3:00"
+
+[node name="Demon - 2Min" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 65.0
+offset_right = 195.0
+offset_bottom = 82.0
+theme_override_font_sizes/normal_font_size = 12
+text = "Demon"
+autowrap_mode = 0
+
+[node name="Spirit - 0Min" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 65.0
+offset_right = 54.0
+offset_bottom = 82.0
+theme_override_font_sizes/normal_font_size = 12
+text = "Spirit"
+autowrap_mode = 0
+
+[node name="GhostTimerEnded" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 88.0
+offset_right = 349.0
+offset_bottom = 117.0
+theme_override_font_sizes/normal_font_size = 20
+autowrap_mode = 0
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 31.0
+offset_right = 348.0
+offset_bottom = 62.0
+text = "Start Timer"
+script = ExtResource("3_6dh53")
+
+[node name="TimerAudio" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
+
+[node name="timerCountdown" type="Timer" parent="."]
+wait_time = 180.0
+one_shot = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="timerCountdown" to="." method="_on_timer_timeout"]

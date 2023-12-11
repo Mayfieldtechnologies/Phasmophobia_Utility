@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh65utdysrqpq"]
+
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/main.gd" id="1_5h7tm"]
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/MapLoad.gd" id="1_hxip5"]
+[ext_resource type="Script" path="res://_scripts/New_Range_Create.gd" id="3_0a2ed"]
+[ext_resource type="Texture2D" uid="uid://41r0wkxisndx" path="res://Scenes/UI_Scenes/Sprites/White.png" id="3_7uetf"]
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/RangeClear.gd" id="3_ccbbd"]
+[ext_resource type="PackedScene" uid="uid://u656in1y4mvu" path="res://Scenes/UI_Scenes/Timer.tscn" id="6_3hylg"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5h7tm")
+
+[node name="MapSelect" type="Node" parent="."]
+
+[node name="MapDropdownButton" type="OptionButton" parent="MapSelect"]
+offset_left = 158.0
+offset_top = 65.0
+offset_right = 308.0
+offset_bottom = 96.0
+item_count = 1
+selected = 0
+popup/item_0/text = "6 Tanglewood"
+popup/item_0/id = 0
+
+[node name="MapLoad" type="Button" parent="MapSelect"]
+offset_left = 318.0
+offset_top = 65.0
+offset_right = 364.0
+offset_bottom = 96.0
+text = "Load"
+script = ExtResource("1_hxip5")
+
+[node name="MapSelectHeader" type="RichTextLabel" parent="MapSelect"]
+offset_left = 159.0
+offset_top = 34.0
+offset_right = 253.0
+offset_bottom = 61.0
+text = "Select Map"
+
+[node name="RangeSelect" type="Node" parent="."]
+
+[node name="RangeDropdown" type="OptionButton" parent="RangeSelect"]
+offset_left = 159.0
+offset_top = 161.0
+offset_right = 250.0
+offset_bottom = 192.0
+item_count = 10
+selected = 0
+popup/item_0/text = "2.5"
+popup/item_0/id = 0
+popup/item_1/text = "3"
+popup/item_1/id = 1
+popup/item_2/text = "4"
+popup/item_2/id = 2
+popup/item_3/text = "4.5"
+popup/item_3/id = 3
+popup/item_4/text = "5"
+popup/item_4/id = 4
+popup/item_5/text = "6"
+popup/item_5/id = 5
+popup/item_6/text = "7.5"
+popup/item_6/id = 6
+popup/item_7/text = "10"
+popup/item_7/id = 7
+popup/item_8/text = "12"
+popup/item_8/id = 8
+popup/item_9/text = "15"
+popup/item_9/id = 9
+
+[node name="RangeCreate" type="Button" parent="RangeSelect"]
+offset_left = 301.0
+offset_top = 161.0
+offset_right = 364.0
+offset_bottom = 192.0
+text = "Create"
+script = ExtResource("3_0a2ed")
+
+[node name="RangeSelectHeader" type="RichTextLabel" parent="RangeSelect"]
+offset_left = 159.0
+offset_top = 127.0
+offset_right = 315.0
+offset_bottom = 155.0
+text = "Create Range Circle"
+
+[node name="RangeColor" type="ColorPickerButton" parent="RangeSelect"]
+offset_left = 258.0
+offset_top = 161.0
+offset_right = 293.0
+offset_bottom = 193.0
+color = Color(1, 1, 1, 1)
+
+[node name="RangeClear" type="Button" parent="RangeSelect"]
+offset_left = 302.0
+offset_top = 199.0
+offset_right = 364.0
+offset_bottom = 230.0
+text = "Clear"
+script = ExtResource("3_ccbbd")
+
+[node name="Current" type="Node" parent="."]
+
+[node name="RangeCircles" type="Node" parent="Current"]
+
+[node name="Map" type="Node" parent="Current"]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.188235, 0.188235, 0.188235, 1)
+position = Vector2(960.5, 538)
+scale = Vector2(193.1, 108.6)
+texture = ExtResource("3_7uetf")
+metadata/_edit_lock_ = true
+
+[node name="CountdownTimer" parent="." instance=ExtResource("6_3hylg")]
+offset_left = 20.0
+offset_top = 243.0
+offset_right = 20.0
+offset_bottom = 243.0
+
+[node name="locMapSpawn" type="Node" parent="."]
+metadata/global_position = Vector2(800, 500)
+
+[node name="locMapSpawnPointLeft" type="Sprite2D" parent="locMapSpawn"]
+position = Vector2(412, 500)
+
+[node name="locMapSpawnPointRight" type="Sprite2D" parent="locMapSpawn"]
+position = Vector2(800, 500)
+
+[connection signal="item_selected" from="MapSelect/MapDropdownButton" to="MapSelect/MapDropdownButton" method="_on_item_selected"]
+[connection signal="pressed" from="MapSelect/MapLoad" to="MapSelect/MapLoad" method="_on_pressed"]
+[connection signal="pressed" from="RangeSelect/RangeCreate" to="RangeSelect/RangeCreate" method="_on_pressed"]
+[connection signal="pressed" from="RangeSelect/RangeClear" to="RangeSelect/RangeClear" method="_on_pressed"]

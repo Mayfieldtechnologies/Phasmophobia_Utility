@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqswqdc6ygcyt"]
+
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/ui_menu.gd" id="1_hkywo"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hkywo")
+
+[node name="RangeDropdown" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 188.0
+offset_right = 123.0
+offset_bottom = 219.0
+item_count = 7
+popup/item_0/text = "2.5m"
+popup/item_0/id = 0
+popup/item_1/text = "3m"
+popup/item_1/id = 1
+popup/item_2/text = "4m"
+popup/item_2/id = 2
+popup/item_3/text = "5m"
+popup/item_3/id = 3
+popup/item_4/text = "10m"
+popup/item_4/id = 4
+popup/item_5/text = "12m"
+popup/item_5/id = 5
+popup/item_6/text = "15m"
+popup/item_6/id = 6
+
+[node name="RangeCreate" type="Button" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 188.0
+offset_right = 237.0
+offset_bottom = 219.0
+action_mode = 0
+text = "Create"
+
+[node name="RangeSelectHeader" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 154.0
+offset_right = 188.0
+offset_bottom = 182.0
+text = "Create Range Circle"
+
+[node name="MapDropdownButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 69.0
+offset_right = 181.0
+offset_bottom = 100.0
+item_count = 1
+popup/item_0/text = "6 Tanglewood"
+popup/item_0/id = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLoad" type="Button" parent="."]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 69.0
+offset_right = 237.0
+offset_bottom = 100.0
+text = "Load"
+metadata/_edit_use_anchors_ = true
+
+[node name="MapSelectHeader" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 38.0
+offset_right = 126.0
+offset_bottom = 65.0
+text = "Select Map"
+metadata/_edit_use_anchors_ = true
+
+[node name="LoadMap" type="Button" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 68.0
+offset_right = 386.0
+offset_bottom = 99.0
+text = "Load"
+
+[connection signal="pressed" from="RangeCreate" to="." method="_on_range_create_pressed"]
+[connection signal="pressed" from="MapLoad" to="." method="_on_map_load_pressed"]
+[connection signal="pressed" from="LoadMap" to="." method="_on_load_map_pressed"]
