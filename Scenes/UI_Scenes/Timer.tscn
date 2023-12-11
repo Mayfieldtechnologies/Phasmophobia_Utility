@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://u656in1y4mvu"]
+[gd_scene load_steps=7 format=3 uid="uid://u656in1y4mvu"]
 
 [ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/Timer_new.gd" id="1_dpvdl"]
 [ext_resource type="Texture2D" uid="uid://cpg80k1507rv" path="res://Scenes/UI_Scenes/Sprites/TimeBar.png" id="1_flyxk"]
 [ext_resource type="Texture2D" uid="uid://cqkqppycqfmdj" path="res://Scenes/UI_Scenes/Sprites/TimeIndicator.png" id="2_7agcf"]
 [ext_resource type="Script" path="res://Scenes/UI_Scenes/StartButton.gd" id="3_6dh53"]
 [ext_resource type="Texture2D" uid="uid://bw7pr5640layh" path="res://Scenes/UI_Scenes/Sprites/TimePlaceholder.png" id="3_rfde4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2vvqo"]
+font_size = 24
 
 [node name="CountdownTimer" type="Control"]
 layout_mode = 3
@@ -15,12 +18,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dpvdl")
 
+[node name="SmudgeTimerHeader" type="Label" parent="."]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 34.0
+text = "Smudge Timer"
+label_settings = SubResource("LabelSettings_2vvqo")
+
 [node name="TimeBar" type="Sprite2D" parent="."]
-position = Vector2(130, 45)
+position = Vector2(116, 70)
 texture = ExtResource("1_flyxk")
 
 [node name="NodeTimeIndicator" type="Node2D" parent="."]
-position = Vector2(218, 45)
+position = Vector2(204, 70)
 
 [node name="TimeIndicator" type="Sprite2D" parent="NodeTimeIndicator"]
 z_index = 2
@@ -38,81 +48,82 @@ text = "3:00:00"
 
 [node name="BeginPlaceholder" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(218, 45)
+position = Vector2(204, 70)
 scale = Vector2(0.325, 1)
 texture = ExtResource("3_rfde4")
 
 [node name="DemonPlaceholder" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(154.064, 45)
+position = Vector2(140.064, 70)
 scale = Vector2(0.325, 1)
 texture = ExtResource("3_rfde4")
 
 [node name="StandardPlaceholder" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(122.096, 45)
+position = Vector2(108.096, 70)
 scale = Vector2(0.325, 1)
 texture = ExtResource("3_rfde4")
 
 [node name="SpiritPlaceholder" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(25, 45)
+position = Vector2(11, 70)
 scale = Vector2(0.325, 1)
 texture = ExtResource("3_rfde4")
 
 [node name="3Min" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 216.0
-offset_top = 65.0
-offset_right = 256.0
-offset_bottom = 89.0
+offset_left = 202.0
+offset_top = 90.0
+offset_right = 242.0
+offset_bottom = 114.0
 theme_override_font_sizes/normal_font_size = 12
 text = "3:00"
 
 [node name="Demon - 2Min" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 151.0
-offset_top = 65.0
-offset_right = 195.0
-offset_bottom = 82.0
+offset_left = 137.0
+offset_top = 90.0
+offset_right = 181.0
+offset_bottom = 107.0
 theme_override_font_sizes/normal_font_size = 12
 text = "Demon"
 autowrap_mode = 0
 
 [node name="Spirit - 0Min" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 65.0
-offset_right = 54.0
-offset_bottom = 82.0
+offset_left = 8.0
+offset_top = 90.0
+offset_right = 40.0
+offset_bottom = 107.0
 theme_override_font_sizes/normal_font_size = 12
 text = "Spirit"
 autowrap_mode = 0
 
 [node name="GhostTimerEnded" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 88.0
-offset_right = 349.0
-offset_bottom = 117.0
+offset_left = 1.0
+offset_top = 113.0
+offset_right = 335.0
+offset_bottom = 142.0
 theme_override_font_sizes/normal_font_size = 20
 autowrap_mode = 0
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 253.0
-offset_top = 31.0
-offset_right = 348.0
-offset_bottom = 62.0
+offset_left = 239.0
+offset_top = 56.0
+offset_right = 334.0
+offset_bottom = 87.0
 text = "Start Timer"
 script = ExtResource("3_6dh53")
-
-[node name="TimerAudio" type="AudioStreamPlayer2D" parent="."]
-volume_db = 10.0
 
 [node name="timerCountdown" type="Timer" parent="."]
 wait_time = 180.0
 one_shot = true
+
+[node name="TimerAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-14, 25)
+volume_db = 10.0
 
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="timerCountdown" to="." method="_on_timer_timeout"]
