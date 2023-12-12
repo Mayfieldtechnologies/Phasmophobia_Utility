@@ -8,19 +8,6 @@ extends Control
 @onready var RangeCircles = get_node("/root/Main/Current/RangeCircles")
 @onready var RangeColor = get_node("/root/Main/RangeSelect/RangeColor")
 
-'''
-@onready var scn1 = preload("res://Scenes/Distance_Scenes/1m.tscn")
-@onready var scn2_5 = preload("res://Scenes/Distance_Scenes/2.5m.tscn")
-@onready var scn3 = preload("res://Scenes/Distance_Scenes/3m.tscn")
-@onready var scn4_5 = preload("res://Scenes/Distance_Scenes/4_5m.tscn")
-@onready var scn5 = preload("res://Scenes/Distance_Scenes/5m.tscn")
-@onready var scn6 = preload("res://Scenes/Distance_Scenes/6m.tscn")
-@onready var scn7_5 = preload("res://Scenes/Distance_Scenes/7_5m.tscn")
-@onready var scn10 = preload("res://Scenes/Distance_Scenes/10m.tscn")
-@onready var scn12 = preload("res://Scenes/Distance_Scenes/12m.tscn")
-@onready var scn15 = preload("res://Scenes/Distance_Scenes/15m.tscn")
-'''
-
 @onready var dictScene = {
 	"1": "res://Scenes/Distance_Scenes/1m.tscn",
 	"2.5 (Yokai Hearing)": "res://Scenes/Distance_Scenes/2.5m.tscn",
@@ -35,6 +22,13 @@ extends Control
 	"15 (Raiju Electronic Hearing)": "res://Scenes/Distance_Scenes/15m.tscn"	
 }
 
+@onready var dictScene_2 = {
+	"1": {
+		"Color": "red",
+		"Scene": "res://Scenes/Distance_Scenes/1m.tscn"
+	}
+	
+}
 
 
 func _on_pressed():
