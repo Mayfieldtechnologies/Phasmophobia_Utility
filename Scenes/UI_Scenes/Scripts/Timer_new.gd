@@ -67,8 +67,9 @@ var currTimeString: String = ""
 	"count_1": count_1	
 }
 
-var xStart
-var xEnd
+var xStart # Start is on the right side
+var xEnd # End is on the left side
+
 var TotalDistance
 
 func _ready():
