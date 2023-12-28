@@ -1,2 +1,7 @@
 res://Scenes/UI_Scenes/Timer.tscn
 res://Scenes/UI_Scenes/Timer.gdshader
+res://Scenes/UI_Scenes/MapSelect.gd
+res://Scenes/UI_Scenes/map_select.tscn
+res://Scenes/UI_Scenes/main.tscn
+res://Scenes/UI_Scenes/main.gd
+res://Scenes/UI_Scenes/volume.tscn
