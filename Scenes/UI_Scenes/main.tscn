@@ -14,9 +14,9 @@ script = ExtResource("1_5h7tm")
 
 [node name="MapDropdownButton" type="OptionButton" parent="MapSelect"]
 offset_left = 32.0
-offset_top = 215.0
+offset_top = 223.0
 offset_right = 184.0
-offset_bottom = 246.0
+offset_bottom = 254.0
 item_count = 1
 selected = 0
 popup/item_0/text = "6 Tanglewood"
@@ -25,18 +25,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MapLoad" type="Button" parent="MapSelect"]
 offset_left = 192.0
-offset_top = 215.0
+offset_top = 223.0
 offset_right = 238.0
-offset_bottom = 246.0
+offset_bottom = 254.0
 text = "Load"
 script = ExtResource("1_hxip5")
 metadata/_edit_use_anchors_ = true
 
 [node name="MapSelectHeader" type="RichTextLabel" parent="MapSelect"]
 offset_left = 33.0
-offset_top = 184.0
+offset_top = 192.0
 offset_right = 127.0
-offset_bottom = 211.0
+offset_bottom = 219.0
 text = "Select Map"
 metadata/_edit_use_anchors_ = true
 

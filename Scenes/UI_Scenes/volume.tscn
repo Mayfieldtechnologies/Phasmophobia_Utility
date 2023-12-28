@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqx88reti4gl3"]
+
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/volume.gd" id="1_t5ifh"]
+[ext_resource type="Texture2D" uid="uid://bw7pr5640layh" path="res://Scenes/UI_Scenes/Sprites/TimePlaceholder.png" id="4_6uecj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3n72"]
+font_size = 11
+
+[sub_resource type="LabelSettings" id="LabelSettings_5lwqt"]
+font_size = 11
+
+[node name="volume" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t5ifh")
+
+[node name="0" type="Node" parent="."]
+
+[node name="bar0" type="Sprite2D" parent="0"]
+visible = false
+position = Vector2(17, 10.631)
+scale = Vector2(0.265, 1.015)
+texture = ExtResource("4_6uecj")
+
+[node name="lbl0" type="Label" parent="0"]
+visible = false
+offset_left = 8.0
+offset_top = 31.0
+offset_right = 25.0
+offset_bottom = 47.0
+text = "0%"
+label_settings = SubResource("LabelSettings_c3n72")
+
+[node name="50" type="Node" parent="."]
+
+[node name="bar50" type="Sprite2D" parent="50"]
+visible = false
+position = Vector2(108, 12)
+scale = Vector2(0.265, 1.015)
+texture = ExtResource("4_6uecj")
+
+[node name="lbl50" type="Label" parent="50"]
+visible = false
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 119.0
+offset_bottom = 48.0
+text = "50%"
+label_settings = SubResource("LabelSettings_5lwqt")
+
+[node name="100" type="Node" parent="."]
+
+[node name="bar100" type="Sprite2D" parent="100"]
+visible = false
+position = Vector2(202, 12)
+scale = Vector2(0.265, 1.015)
+texture = ExtResource("4_6uecj")
+
+[node name="lbl100" type="Label" parent="100"]
+visible = false
+offset_left = 187.0
+offset_top = 32.0
+offset_right = 216.0
+offset_bottom = 48.0
+text = "100%"
+label_settings = SubResource("LabelSettings_c3n72")
+
+[node name="VolumeBar" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 81.0
+offset_right = 268.0
+offset_bottom = 97.0
+step = 0.1
+tick_count = 5
+ticks_on_borders = true
+
+[connection signal="drag_ended" from="VolumeBar" to="." method="_on_volume_bar_drag_ended"]
+[connection signal="value_changed" from="VolumeBar" to="." method="_on_volume_bar_value_changed"]

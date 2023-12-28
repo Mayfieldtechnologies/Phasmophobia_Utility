@@ -16,7 +16,7 @@ var timeStart = 180.0
 @onready var dictGhosts = {
 	"Demon": 120,
 	"Standard": 90,
-	"Spirit": 0
+	"Spiri6t": 0
 }
 
 # Misc Variables
@@ -24,6 +24,7 @@ var currGhost
 var currBreakpoint
 var currTime
 var startTimer = false
+var MasterVolume = 50.0
 
 # Current Time Variables
 @onready var currMin : int = timeStart / 60
@@ -38,9 +39,11 @@ var currTimeString: String = ""
 @onready var NodeTimeCurrent = $NodeTimeIndicator/TimeCurrent
 @onready var NodeStartButton = $StartButton
 @onready var NodeGhostTimerEnded = $GhostTimerEnded
+@onready var VolumeString = $VolumeSlider/VolumeString
 
 # Sound
 @onready var TimerAudio = $TimerAudio	
+@onready var VolumeSlider = $VolumeSlider
 
 # Ghosts
 @onready var count_demon_start = preload("res://Sounds/Timer/demon_timer_ending_in.mp3")
@@ -77,6 +80,7 @@ func _ready():
 	
 	xStart = BeginPlaceholder.global_position.x
 	xEnd = SpiritPlaceholder.global_position.x
+	VolumeSlider.value = MasterVolume
 	
 	TotalDistance = xStart - xEnd
 	
@@ -103,6 +107,8 @@ func _process(_delta):
 		
 		if currTime > 0:
 			NodeTimeIndicator.global_position.x = xEnd + (currTime/timeStart)*TotalDistance
+		
+	print(TimerAudio.volume_db)
 		
 func checkTime(currCheck):
 	if currCheck == currBreakpoint + 12:
@@ -167,3 +173,17 @@ func ResetTimer():
 	# Reset Ghost Reference
 	currGhost = "Demon"
 	currBreakpoint = dictGhosts[currGhost]
+
+func get_master_volume():
+	return MasterVolume/100
+
+func _on_volume_slider_value_changed(value):
+	var NewVolume = -24 + (value/100) * 48
+	TimerAudio.volume_db = NewVolume
+	VolumeString.text = str(value) + " %"
+	MasterVolume = value
+
+
+func _on_dev_test_sound_pressed():
+	TimerAudio.stream = count_demon_start
+	TimerAudio.play()
