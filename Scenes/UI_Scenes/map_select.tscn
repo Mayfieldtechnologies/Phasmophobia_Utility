@@ -1,23 +1,27 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgbg6vhvf2jsv"]
 
-[ext_resource type="Script" path="res://Scenes/UI_Scenes/MapSelect.gd" id="1_gucdw"]
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/MapSelect.gd" id="1_gucdw"]
 
 [node name="MapSelect" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1060.0
+offset_bottom = -1016.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gucdw")
 
 [node name="MapSelectHeader" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_right = 94.0
 offset_bottom = 27.0
 text = "Select Map"
 metadata/_edit_use_anchors_ = true
 
 [node name="MapLoad" type="Button" parent="."]
+layout_mode = 0
 offset_left = 192.0
 offset_top = 32.0
 offset_right = 238.0
@@ -25,7 +29,8 @@ offset_bottom = 63.0
 text = "Load"
 metadata/_edit_use_anchors_ = true
 
-[node name="MapDropdownButton" type="OptionButton" parent="."]
+[node name="MapDropdown" type="OptionButton" parent="."]
+layout_mode = 0
 offset_top = 32.0
 offset_right = 152.0
 offset_bottom = 63.0
@@ -36,5 +41,3 @@ popup/item_0/id = 0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="MapLoad" to="." method="_on_map_load_pressed"]
-[connection signal="pressed" from="MapLoad" to="MapLoad" method="_on_pressed"]
-[connection signal="item_selected" from="MapDropdownButton" to="MapDropdownButton" method="_on_item_selected"]

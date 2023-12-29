@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://eugssvr7d4m"]
+
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/options.gd" id="1_aicjj"]
+[ext_resource type="PackedScene" uid="uid://cqx88reti4gl3" path="res://Scenes/UI_Scenes/volume.tscn" id="2_26vga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq8ki"]
+bg_color = Color(0.47451, 0.466667, 0.6, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_ivjfr"]
+font_size = 24
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 448.0
+offset_top = 416.0
+offset_right = -532.0
+offset_bottom = -472.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aicjj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vq8ki")
+
+[node name="options_header" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 16.0
+offset_right = 204.0
+offset_bottom = 50.0
+text = "Options"
+label_settings = SubResource("LabelSettings_ivjfr")
+
+[node name="bypass_smudge_pause_button" type="CheckButton" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 56.0
+offset_right = 293.0
+offset_bottom = 87.0
+text = "Bypass Smudge Timer Pause"
+
+[node name="flip_ui_button" type="CheckButton" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 96.0
+offset_right = 121.0
+offset_bottom = 127.0
+text = "Flip UI"
+
+[node name="close_options_button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 192.0
+offset_right = 210.0
+offset_bottom = 223.0
+text = "Close"
+
+[node name="volume" parent="Panel" instance=ExtResource("2_26vga")]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 136.0
+offset_right = -24.0
+offset_bottom = -56.0
+
+[connection signal="toggled" from="Panel/bypass_smudge_pause_button" to="." method="_on_bypass_smudge_pause_toggled"]
+[connection signal="toggled" from="Panel/flip_ui_button" to="." method="_on_flip_ui_toggled"]
+[connection signal="pressed" from="Panel/close_options_button" to="." method="_on_close_options_pressed"]
+[connection signal="new_volume" from="Panel/volume" to="." method="_on_volume_new_volume"]

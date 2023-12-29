@@ -1,10 +1,10 @@
 extends Control
 
-signal loadMap(selectedMap)
+signal loadMap
 
 @export var selected_map_value = ""
 @export var zIndex = 1
-@onready var MapDropdown = $MapDropdownButton
+@onready var MapDropdown = $MapDropdown
 #@onready var CurrMap = get_node("/root/Main/Current/Map")
 #@onready var locMapSpawn = get_node("/root/Main/locMapSpawn/locMapSpawnPointRight")
 
@@ -24,4 +24,4 @@ func LoadMap():
 
 
 func _on_map_load_pressed():
-	emit_signal("loadMap",selected_map_value)
+	emit_signal("loadMap")

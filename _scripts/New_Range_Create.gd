@@ -5,7 +5,7 @@ extends Control
 @export var zIndex = 3
 
 @onready var RangeDropdown = get_node("/root/Main/RangeSelect/RangeDropdown")
-@onready var RangeCircles = get_node("/root/Main/Current/RangeCircles")
+@onready var RangeCircles = get_node("/root/Main/RangeLayer/RangeCircles")
 @onready var RangeColor = get_node("/root/Main/RangeSelect/RangeColor")
 
 @onready var dictScene = {

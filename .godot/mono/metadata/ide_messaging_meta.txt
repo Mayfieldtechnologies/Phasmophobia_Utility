@@ -1,2 +1,2 @@
-﻿50168
-C:/Users/mayfi/Documents/Godot_v4.2-stable_mono_win64/Godot_v4.2-stable_mono_win64.exe
+﻿55565
+C:/Users/Alamaxia/Desktop/Godot_v4.2-stable_mono_win64/Godot_v4.2-stable_mono_win64.exe

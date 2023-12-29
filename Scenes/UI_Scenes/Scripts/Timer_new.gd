@@ -16,7 +16,7 @@ var timeStart = 180.0
 @onready var dictGhosts = {
 	"Demon": 120,
 	"Standard": 90,
-	"Spiri6t": 0
+	"Spirit": 0
 }
 
 # Misc Variables
@@ -24,7 +24,7 @@ var currGhost
 var currBreakpoint
 var currTime
 var startTimer = false
-var MasterVolume = 50.0
+var bypassPause = false
 
 # Current Time Variables
 @onready var currMin : int = timeStart / 60
@@ -39,11 +39,11 @@ var currTimeString: String = ""
 @onready var NodeTimeCurrent = $NodeTimeIndicator/TimeCurrent
 @onready var NodeStartButton = $StartButton
 @onready var NodeGhostTimerEnded = $GhostTimerEnded
-@onready var VolumeString = $VolumeSlider/VolumeString
+
+var main_scene
 
 # Sound
 @onready var TimerAudio = $TimerAudio	
-@onready var VolumeSlider = $VolumeSlider
 
 # Ghosts
 @onready var count_demon_start = preload("res://Sounds/Timer/demon_timer_ending_in.mp3")
@@ -76,20 +76,23 @@ var xEnd # End is on the left side
 var TotalDistance
 
 func _ready():
+	main_scene = find_parental(self,"Main")
 	CountdownTimer.wait_time = timeStart
-	
+	define_placeholders()
+
+func define_placeholders():
 	xStart = BeginPlaceholder.global_position.x
 	xEnd = SpiritPlaceholder.global_position.x
-	VolumeSlider.value = MasterVolume
 	
 	TotalDistance = xStart - xEnd
-	
 
 func _on_button_pressed():
+	bypassPause = main_scene.get_bypass_smudge_pause()
+	print(bypassPause)
 	CountdownTimer.start()
 	
 	startTimer = !startTimer
-	if startTimer == true:
+	if startTimer == true or bypassPause:
 		ResetTimer()
 	else:
 		NodeStartButton.text = "Start Timer"
@@ -103,13 +106,12 @@ func _process(_delta):
 		if int(timeCompare) != int(currTime):
 			checkTime(int(currTime)+1)
 		
-		UpdateTimeString()
-		
 		if currTime > 0:
 			NodeTimeIndicator.global_position.x = xEnd + (currTime/timeStart)*TotalDistance
 		
-	print(TimerAudio.volume_db)
+		UpdateTimeString()
 		
+
 func checkTime(currCheck):
 	if currCheck == currBreakpoint + 12:
 		TimerAudio.stream = dictSounds["start_"+currGhost]
@@ -173,17 +175,28 @@ func ResetTimer():
 	# Reset Ghost Reference
 	currGhost = "Demon"
 	currBreakpoint = dictGhosts[currGhost]
-
-func get_master_volume():
-	return MasterVolume/100
-
-func _on_volume_slider_value_changed(value):
-	var NewVolume = -24 + (value/100) * 48
-	TimerAudio.volume_db = NewVolume
-	VolumeString.text = str(value) + " %"
-	MasterVolume = value
-
-
+	
+	# Tell the process function that we've started the timer
+	# Useful for the bypass timer pause
+	startTimer = true
+	
 func _on_dev_test_sound_pressed():
 	TimerAudio.stream = count_demon_start
 	TimerAudio.play()
+
+func find_parental(current_node, target_node):
+	# Check if current_node is the target_node
+	if(current_node.name == target_node):
+		return current_node
+	
+	# Define parent_node of current_node
+	var parent_node = current_node.get_parent()
+	
+	# Check if parent_node is defined
+	if parent_node:
+		# Recursively run this function and store value in result
+		var result = find_parental(parent_node, target_node)
+		
+		# Return the parent_node as the result if it is defined.
+		if result:
+			return result
