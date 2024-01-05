@@ -73,7 +73,7 @@ position = Vector2(32, 136)
 position = Vector2(32, 216)
 
 [node name="map_spawn_anchor" type="Node2D" parent="anchors/normal"]
-position = Vector2(804, 504)
+position = Vector2(752, 512)
 
 [node name="option_button_anchor" type="Node2D" parent="anchors/normal"]
 position = Vector2(32, 344)
@@ -90,9 +90,52 @@ position = Vector2(928, 136)
 position = Vector2(928, 216)
 
 [node name="map_spawn_anchor" type="Node2D" parent="anchors/mirror"]
-position = Vector2(416, 504)
+position = Vector2(264, 704)
 
 [node name="option_button_anchor" type="Node2D" parent="anchors/mirror"]
 position = Vector2(1136, 344)
 
+[node name="MapOptionButtons" type="Node" parent="."]
+
+[node name="toggleHouse" type="Button" parent="MapOptionButtons"]
+offset_left = 448.0
+offset_top = 64.0
+offset_right = 560.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.917647, 1)
+text = "House"
+
+[node name="toggleGrid" type="Button" parent="MapOptionButtons"]
+offset_left = 568.0
+offset_top = 64.0
+offset_right = 680.0
+offset_bottom = 95.0
+text = "Grid"
+
+[node name="toggleNames" type="Button" parent="MapOptionButtons"]
+offset_left = 688.0
+offset_top = 64.0
+offset_right = 800.0
+offset_bottom = 95.0
+text = "Names"
+
+[node name="toggleBoundaries" type="Button" parent="MapOptionButtons"]
+offset_left = 808.0
+offset_top = 64.0
+offset_right = 920.0
+offset_bottom = 95.0
+text = "Boundaries"
+
+[node name="toggleLegend" type="Button" parent="MapOptionButtons"]
+offset_left = 928.0
+offset_top = 64.0
+offset_right = 1040.0
+offset_bottom = 95.0
+text = "Legend"
+
 [connection signal="pressed" from="UILayer/option_button" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MapOptionButtons/toggleHouse" to="." method="_on_toggle_house_pressed"]
+[connection signal="pressed" from="MapOptionButtons/toggleGrid" to="." method="_on_toggle_grid_pressed"]
+[connection signal="pressed" from="MapOptionButtons/toggleNames" to="." method="_on_toggle_names_pressed"]
+[connection signal="pressed" from="MapOptionButtons/toggleBoundaries" to="." method="_on_toggle_boundaries_pressed"]
+[connection signal="pressed" from="MapOptionButtons/toggleLegend" to="." method="_on_toggle_legend_pressed"]

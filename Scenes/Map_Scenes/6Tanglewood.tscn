@@ -1,20 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvkoxeavphime"]
 
-[ext_resource type="Texture2D" uid="uid://fvx302jbm6h7" path="res://Maps/6Tanglewood.png" id="1_i4pjg"]
+[ext_resource type="Texture2D" uid="uid://bq5re1led38s5" path="res://Maps/Fantismal/6 Tanglewood.png" id="1_qc2em"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7w11"]
-size = Vector2(747, 911)
+size = Vector2(1206, 796)
 
 [node name="6Tanglewood" type="Node2D"]
 z_index = 1
+scale = Vector2(0.75, 0.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_i4pjg")
+texture = ExtResource("1_qc2em")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 visible = false
-position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_a7w11")

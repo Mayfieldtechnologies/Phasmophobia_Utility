@@ -15,7 +15,7 @@ func _on_pressed():
 	LoadMap()
 
 func LoadMap():
-	var sceneMap = load("res://Scenes/Map_Scenes/" + selected_map_value.replace(" ","") +".tscn")
+	var sceneMap = load("res://Scenes/Map_Scenes/Fantismal Maps/" + selected_map_value.replace(" ","") +".tscn")
 	var instMap = sceneMap.instantiate()
 	
 	#CurrMap.add_child(instMap)

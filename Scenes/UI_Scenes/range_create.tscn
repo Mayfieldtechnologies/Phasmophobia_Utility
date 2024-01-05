@@ -85,7 +85,7 @@ offset_left = 183.877
 offset_top = 105.185
 offset_right = 218.877
 offset_bottom = 137.185
-color = Color(1, 1, 1, 1)
+color = Color(0.411765, 0.411765, 0.411765, 1)
 
 [node name="RangeClear" type="Button" parent="."]
 layout_mode = 1

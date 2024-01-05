@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://4h10kqhhun1a"]
+
+[ext_resource type="Script" path="res://Scenes/Fantismal Maps/6Tanglewood.gd" id="1_kwg7y"]
+[ext_resource type="Texture2D" uid="uid://56gdu3081tpk" path="res://Maps/Fantismal/6 Tanglewood/6Tanglewood-Base-Transparent.png" id="2_ekd42"]
+[ext_resource type="Texture2D" uid="uid://braefbh4uq1gu" path="res://Maps/Fantismal/6 Tanglewood/6Tanglewood-RoomBoundaries.png" id="3_06xga"]
+[ext_resource type="Texture2D" uid="uid://y2m0w6ct4ixl" path="res://Maps/Fantismal/6 Tanglewood/6Tanglewood-RoomNames.png" id="4_7fy1f"]
+[ext_resource type="Texture2D" uid="uid://cj3fkxvxomcj3" path="res://Maps/Fantismal/6 Tanglewood/6Tanglewood-Grid.png" id="5_hcibd"]
+[ext_resource type="Texture2D" uid="uid://cdjkpxab0iy2e" path="res://Maps/Fantismal/6 Tanglewood/6Tanglewood-Legend.png" id="6_60yui"]
+
+[node name="6Tanglewood" type="Node2D"]
+z_index = 1
+scale = Vector2(0.9, 0.9)
+script = ExtResource("1_kwg7y")
+
+[node name="House" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+texture = ExtResource("2_ekd42")
+
+[node name="Boundaries" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
+texture = ExtResource("3_06xga")
+
+[node name="Names" type="Sprite2D" parent="."]
+z_index = 3
+z_as_relative = false
+texture = ExtResource("4_7fy1f")
+
+[node name="Grid" type="Sprite2D" parent="."]
+z_index = 4
+z_as_relative = false
+texture = ExtResource("5_hcibd")
+
+[node name="Legend" type="Sprite2D" parent="."]
+z_index = 5
+z_as_relative = false
+texture = ExtResource("6_60yui")

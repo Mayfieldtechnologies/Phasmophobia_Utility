@@ -21,6 +21,12 @@ extends Node2D
 # Options Scene
 @onready var options_scene = preload("res://Scenes/UI_Scenes/options.tscn")
 
+# Map Layer Togglesd
+@onready var toggle_house = $MapOptionButtons/toggleHouse
+@onready var toggle_grid = $MapOptionButtons/toggleGrid
+@onready var toggle_boundaries = $MapOptionButtons/toggleBoundaries
+@onready var toggle_legend = $MapOptionButtons/toggleLegend
+
 # Instantiated Scenes
 var instMap
 var options_ui
@@ -39,18 +45,21 @@ var slider_value = 50
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MapSelect.loadMap.connect(_load_map_button_pressed)
-
+	toggle_house.modulate = Color("#11630e")
+	toggle_house.self_modulate = Color(1,1,1)
+	
 # Loads the selected map
 func _load_map_button_pressed():
 	var selected_map_index = MapDropdown.selected
 	var selected_map_value = MapDropdown.get_item_text(selected_map_index)
 	
-	var sceneMap = load("res://Scenes/Map_Scenes/" + selected_map_value.replace(" ","") +".tscn")
+	var sceneMap = load("res://Scenes/Fantismal Maps/" + selected_map_value.replace(" ","") +".tscn")
 	instMap = sceneMap.instantiate()
 	
 	current_map.add_child(instMap)
 	
 	instMap.global_position = get_node("anchors/" + anchor_node +"/map_spawn_anchor").global_position
+	
 
 # Opens the option scene
 func _on_options_pressed():
@@ -115,3 +124,29 @@ func get_ui_mirror() -> bool:
 	
 func get_bypass_smudge_pause() -> bool:
 	return bypass_smudge_pause
+
+
+func _on_toggle_house_pressed():
+	if(instMap != null):
+		instMap.toggle_house()
+		toggle_house.modulate = Color("#FFFFFF")
+
+
+func _on_toggle_grid_pressed():
+	if(instMap != null):
+		instMap.toggle_grid()
+
+
+func _on_toggle_boundaries_pressed():
+	if(instMap != null):
+		instMap.toggle_boundaries()
+
+
+func _on_toggle_legend_pressed():
+	if(instMap != null):
+		instMap.toggle_legend()
+
+
+func _on_toggle_names_pressed():
+	if(instMap != null):
+		instMap.toggle_names()

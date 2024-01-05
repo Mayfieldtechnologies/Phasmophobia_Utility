@@ -59,7 +59,6 @@ scale = Vector2(0.325, 1)
 texture = ExtResource("3_rfde4")
 
 [node name="StandardPlaceholder" type="Sprite2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(108.096, 64)
 scale = Vector2(0.325, 1)

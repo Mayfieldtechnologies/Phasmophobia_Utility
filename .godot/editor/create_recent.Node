@@ -1,9 +1,9 @@
 Button
 Node
+Sprite2D
 Node2D
 Label
 Panel
-Sprite2D
 CheckButton
 CanvasLayer
 HSlider
