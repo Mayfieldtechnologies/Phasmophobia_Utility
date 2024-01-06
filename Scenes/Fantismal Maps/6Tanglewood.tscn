@@ -36,3 +36,9 @@ texture = ExtResource("5_hcibd")
 z_index = 5
 z_as_relative = false
 texture = ExtResource("6_60yui")
+
+[node name="m_left" type="Node2D" parent="."]
+position = Vector2(-170, 311.111)
+
+[node name="m_right" type="Node2D" parent="."]
+position = Vector2(-147.778, 311.111)

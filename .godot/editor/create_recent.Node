@@ -1,7 +1,8 @@
-Button
-Node
-Sprite2D
 Node2D
+Node
+TextureButton
+Button
+Sprite2D
 Label
 Panel
 CheckButton
@@ -11,4 +12,3 @@ Camera2D
 Timer
 AudioStreamPlayer2D
 RichTextLabel
-ColorPickerButton
