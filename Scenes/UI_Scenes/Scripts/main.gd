@@ -45,6 +45,7 @@ var slider_value = 50
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MapSelect.loadMap.connect(_load_map_button_pressed)
+	#set_button_color(toggle_house, Color("#11630e"))
 	#toggle_house["custom_styles/normal/bg_color"].bg_color = Color("#11630e")
 	#var toggleHouseStyleBox = toggle_house.get_theme_stylebox("Normal")
 	#toggleHouseStyleBox.bg_color = Color(0.2,0.9,0.9) #Color("#11630e")
@@ -152,3 +153,10 @@ func _on_toggle_legend_pressed():
 func _on_toggle_names_pressed():
 	if(instMap != null):
 		instMap.toggle_names()
+
+
+func set_button_color(button, new_color):
+	var stylebox_flat = button.get_stylebox("normal")
+	stylebox_flat.color = new_color
+	button.add_stylebox_override("normal", stylebox_flat)
+	button.self_modulate = Color(1,1,1)
