@@ -25,7 +25,7 @@ offset_left = 8.87692
 offset_top = 67.1852
 offset_right = 294.877
 offset_bottom = 98.1852
-item_count = 10
+item_count = 11
 selected = 0
 popup/item_0/text = "2.5 (Yokai Hearing)"
 popup/item_0/id = 0
@@ -47,6 +47,8 @@ popup/item_8/text = "12 (Myling Footstep)"
 popup/item_8/id = 8
 popup/item_9/text = "15 (Raiju Electronic Hearing)"
 popup/item_9/id = 9
+popup/item_10/text = "1m"
+popup/item_10/id = 10
 
 [node name="RangeSelectHeader" type="RichTextLabel" parent="."]
 layout_mode = 1

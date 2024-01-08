@@ -15,9 +15,6 @@ signal mapToggle
 func _ready():
 	mDistance = node1mRight.global_position.x - node1mLeft.global_position.x
 	print(str(mDistance))
-	
-#func _draw():
-#	draw_circle(Vector2(400,400),mDistance,Color.GREEN)
 
 func toggle_house():
 	nodeHouse.visible = !nodeHouse.visible
@@ -33,3 +30,6 @@ func toggle_grid():
 	
 func toggle_legend():
 	nodeLegend.visible = !nodeLegend.visible
+
+func get_1m_distance():
+	return mDistance

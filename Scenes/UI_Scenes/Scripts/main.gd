@@ -38,6 +38,8 @@ var anchor_node = "normal"
 var master_volume = 0
 var slider_value = 50
 
+var range_radius = 0
+
 ##########################
 # END GLOBAL DELCARATION #
 ##########################
@@ -63,6 +65,7 @@ func _load_map_button_pressed():
 	
 	instMap.global_position = get_node("anchors/" + anchor_node +"/map_spawn_anchor").global_position
 	
+	set_range_circle_radius()
 
 # Opens the option scene
 func _on_options_pressed():
@@ -154,6 +157,11 @@ func _on_toggle_names_pressed():
 	if(instMap != null):
 		instMap.toggle_names()
 
+func set_range_circle_radius():
+	if(instMap != null):
+		range_radius = instMap.get_1m_distance()
+		RangeCreate.set_radius(range_radius)
+		print("main:set_range_circle_radius = " + str(range_radius))
 
 func set_button_color(button, new_color):
 	var stylebox_flat = button.get_stylebox("normal")
