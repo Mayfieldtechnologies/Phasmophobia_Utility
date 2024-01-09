@@ -1,13 +1,14 @@
-res://Scenes/UI_Scenes/main.tscn
-res://Scenes/UI_Scenes/Timer.gdshader
-res://Scenes/UI_Scenes/options.tscn
-res://Scenes/UI_Scenes/volume.tscn
-res://Scenes/UI_Scenes/Timer.tscn
-res://Scenes/UI_Scenes/range_create.tscn
 res://Scenes/UI_Scenes/map_select.tscn
+res://Scenes/UI_Scenes/Timer.gdshader
+res://Scenes/UI_Scenes/Timer.tscn
+res://Scenes/UI_Scenes/main.tscn
+res://Scenes/UI_Scenes/range_create.tscn
 res://Scenes/Fantismal Maps/6Tanglewood.tscn
-res://Scenes/Distance_Scenes/1m_script.gd
+res://Scenes/Distance_Scenes/1m.tscn
+res://Scenes/UI_Scenes/options.tscn
+res://Scenes/UI_Scenes/Scripts/range_create.gd
 res://Scenes/Fantismal Maps/6Tanglewood.gd
 res://Scenes/UI_Scenes/Scripts/main.gd
-res://Scenes/UI_Scenes/Scripts/range_create.gd
-res://Scenes/Distance_Scenes/1m.tscn
+res://Scenes/UI_Scenes/how_to_use.tscn
+res://Scenes/UI_Scenes/Scripts/how_to_use.gd
+res://Scenes/UI_Scenes/Scripts/MapSelect.gd

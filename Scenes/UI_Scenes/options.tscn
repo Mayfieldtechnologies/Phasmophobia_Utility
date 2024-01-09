@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqx88reti4gl3" path="res://Scenes/UI_Scenes/volume.tscn" id="2_26vga"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq8ki"]
-bg_color = Color(0.47451, 0.466667, 0.6, 1)
+bg_color = Color(0.133333, 0, 0.0156863, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
@@ -55,7 +55,7 @@ offset_left = 24.0
 offset_top = 96.0
 offset_right = 121.0
 offset_bottom = 127.0
-text = "Flip UI"
+text = "Mirror UI"
 
 [node name="close_options_button" type="Button" parent="Panel"]
 layout_mode = 0

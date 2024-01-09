@@ -1,56 +1,225 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh65utdysrqpq"]
+[gd_scene load_steps=7 format=3 uid="uid://bh65utdysrqpq"]
 
 [ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/main.gd" id="1_5h7tm"]
 [ext_resource type="Texture2D" uid="uid://41r0wkxisndx" path="res://Scenes/UI_Scenes/Sprites/White.png" id="3_7uetf"]
 [ext_resource type="PackedScene" uid="uid://cgbg6vhvf2jsv" path="res://Scenes/UI_Scenes/map_select.tscn" id="4_o4kg8"]
+[ext_resource type="Texture2D" uid="uid://bfkskjewlmywf" path="res://Scenes/UI_Scenes/Sprites/main_background_wide.png" id="5_wuj16"]
 [ext_resource type="PackedScene" uid="uid://u656in1y4mvu" path="res://Scenes/UI_Scenes/Timer.tscn" id="6_3hylg"]
 [ext_resource type="PackedScene" uid="uid://b2olnbe50ltxv" path="res://Scenes/UI_Scenes/range_create.tscn" id="7_32utt"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5h7tm")
+metadata/_edit_horizontal_guides_ = [248.0]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 layer = 10
 
 [node name="CountdownTimer" parent="UILayer" instance=ExtResource("6_3hylg")]
-offset_left = 32.0
+offset_left = 64.0
 offset_top = 24.0
-offset_right = -932.0
-offset_bottom = -904.0
+offset_right = -1004.0
+offset_bottom = -920.0
+metadata/_edit_horizontal_guides_ = [48.0]
 
 [node name="MapSelect" parent="UILayer" instance=ExtResource("4_o4kg8")]
-offset_left = 32.0
-offset_top = 136.0
-offset_right = -1020.0
-offset_bottom = -872.0
+offset_left = 304.0
+offset_top = 24.0
+offset_right = -756.0
+offset_bottom = -968.0
+metadata/_edit_horizontal_guides_ = [48.0]
 
 [node name="RangeCreate" parent="UILayer" instance=ExtResource("7_32utt")]
 anchor_right = 1.483
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 216.0
-offset_right = -1575.9
-offset_bottom = -736.0
+offset_left = 544.0
+offset_top = 24.0
+offset_right = -1063.9
+offset_bottom = -928.0
+metadata/_edit_horizontal_guides_ = [48.0]
 
 [node name="option_button" type="Button" parent="UILayer"]
-offset_left = 32.0
-offset_top = 344.0
-offset_right = 112.0
-offset_bottom = 375.0
+offset_left = 1112.0
+offset_top = 248.0
+offset_right = 1224.0
+offset_bottom = 279.0
 text = "Options"
+
+[node name="how_to_button" type="Button" parent="UILayer"]
+offset_left = 1112.0
+offset_top = 200.0
+offset_right = 1224.0
+offset_bottom = 231.0
+text = "How To Use"
 
 [node name="MapLayer" type="CanvasLayer" parent="."]
 layer = 2
 
+[node name="MapWindow" type="Sprite2D" parent="MapLayer"]
+visibility_layer = 5
+z_index = 4
+position = Vector2(650, 540)
+texture = ExtResource("5_wuj16")
+
+[node name="MapOptionButtons" type="Node2D" parent="MapLayer"]
+position = Vector2(864, 32)
+
+[node name="toggleHouse" type="Button" parent="MapLayer/MapOptionButtons"]
+visibility_layer = 7
+z_index = 4
+offset_left = 1.14441e-05
+offset_top = 40.0
+offset_right = 112.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "House"
+metadata/_edit_use_anchors_ = true
+
+[node name="toggleGrid" type="Button" parent="MapLayer/MapOptionButtons"]
+visibility_layer = 7
+z_index = 4
+offset_left = 1.14441e-05
+offset_top = 96.0
+offset_right = 112.0
+offset_bottom = 127.0
+text = "Grid"
+metadata/_edit_use_anchors_ = true
+
+[node name="toggleNames" type="Button" parent="MapLayer/MapOptionButtons"]
+visibility_layer = 7
+z_index = 4
+offset_left = 128.0
+offset_top = 40.0
+offset_right = 240.0
+offset_bottom = 71.0
+text = "Names"
+metadata/_edit_use_anchors_ = true
+
+[node name="toggleBoundaries" type="Button" parent="MapLayer/MapOptionButtons"]
+visibility_layer = 7
+z_index = 4
+offset_left = 128.0
+offset_top = 96.0
+offset_right = 240.0
+offset_bottom = 127.0
+text = "Boundaries"
+metadata/_edit_use_anchors_ = true
+
+[node name="toggleLegend" type="Button" parent="MapLayer/MapOptionButtons"]
+visibility_layer = 7
+z_index = 4
+offset_left = 256.0
+offset_top = 40.0
+offset_right = 368.0
+offset_bottom = 71.0
+text = "Legend"
+metadata/_edit_use_anchors_ = true
+
+[node name="ToggleMapLayers" type="RichTextLabel" parent="MapLayer/MapOptionButtons"]
+z_index = 4
+anchors_preset = -1
+anchor_left = -0.0246154
+anchor_top = -0.259259
+anchor_right = -0.0246154
+anchor_bottom = -0.259259
+offset_top = -8.0
+offset_right = 156.0
+offset_bottom = 20.0
+text = "Toggle Map Layers"
+metadata/_edit_use_anchors_ = true
+
 [node name="current_map" type="Node" parent="MapLayer"]
+
+[node name="MapsByFantismal" type="RichTextLabel" parent="MapLayer"]
+offset_left = 968.0
+offset_top = 1000.0
+offset_right = 1236.0
+offset_bottom = 1043.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Maps by @Fantismal"
+
+[node name="Simple Controls" type="RichTextLabel" parent="MapLayer"]
+offset_left = 72.0
+offset_top = 960.0
+offset_right = 340.0
+offset_bottom = 1032.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Pan: Middle-Click
+Zoom: Mouse Wheel"
 
 [node name="RangeLayer" type="CanvasLayer" parent="."]
 layer = 3
 
 [node name="RangeCircles" type="Node" parent="RangeLayer"]
 
+[node name="anchors" type="Node" parent="."]
+
+[node name="normal" type="Node" parent="anchors"]
+
+[node name="smudge_anchor" type="Node2D" parent="anchors/normal"]
+visible = false
+position = Vector2(64, 24)
+
+[node name="select_map_anchor" type="Node2D" parent="anchors/normal"]
+visible = false
+position = Vector2(304, 24)
+
+[node name="create_range_anchor" type="Node2D" parent="anchors/normal"]
+visible = false
+position = Vector2(544, 24)
+
+[node name="map_spawn_anchor" type="Node2D" parent="anchors/normal"]
+visible = false
+position = Vector2(64, 192)
+
+[node name="option_button_anchor" type="Node2D" parent="anchors/normal"]
+visible = false
+position = Vector2(1112, 248)
+
+[node name="toggle_map_layers_anchor" type="Node2D" parent="anchors/normal"]
+visible = false
+position = Vector2(864, 32)
+
+[node name="how_to_use_button_anchor" type="Node2D" parent="anchors/normal"]
+visible = false
+position = Vector2(1112, 200)
+
+[node name="mirror" type="Node" parent="anchors"]
+
+[node name="smudge_anchor" type="Node2D" parent="anchors/mirror"]
+visible = false
+position = Vector2(1000, 24)
+
+[node name="select_map_anchor" type="Node2D" parent="anchors/mirror"]
+visible = false
+position = Vector2(768, 24)
+
+[node name="create_range_anchor" type="Node2D" parent="anchors/mirror"]
+visible = false
+position = Vector2(448, 24)
+
+[node name="map_spawn_anchor" type="Node2D" parent="anchors/mirror"]
+visible = false
+position = Vector2(64, 192)
+
+[node name="option_button_anchor" type="Node2D" parent="anchors/mirror"]
+visible = false
+position = Vector2(80, 248)
+
+[node name="toggle_map_layers_anchor" type="Node2D" parent="anchors/mirror"]
+visible = false
+position = Vector2(64, 32)
+
+[node name="how_to_use_button_anchor" type="Node2D" parent="anchors/mirror"]
+visible = false
+position = Vector2(80, 200)
+
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 
 [node name="Background" type="Sprite2D" parent="BackgroundLayer"]
 modulate = Color(0.188235, 0.188235, 0.188235, 1)
@@ -59,83 +228,10 @@ scale = Vector2(193.1, 108.6)
 texture = ExtResource("3_7uetf")
 metadata/_edit_lock_ = true
 
-[node name="anchors" type="Node" parent="."]
-
-[node name="normal" type="Node" parent="anchors"]
-
-[node name="smudge_anchor" type="Node2D" parent="anchors/normal"]
-position = Vector2(32, 24)
-
-[node name="select_map_anchor" type="Node2D" parent="anchors/normal"]
-position = Vector2(32, 136)
-
-[node name="create_range_anchor" type="Node2D" parent="anchors/normal"]
-position = Vector2(32, 216)
-
-[node name="map_spawn_anchor" type="Node2D" parent="anchors/normal"]
-position = Vector2(752, 512)
-
-[node name="option_button_anchor" type="Node2D" parent="anchors/normal"]
-position = Vector2(32, 344)
-
-[node name="mirror" type="Node" parent="anchors"]
-
-[node name="smudge_anchor" type="Node2D" parent="anchors/mirror"]
-position = Vector2(928, 24)
-
-[node name="select_map_anchor" type="Node2D" parent="anchors/mirror"]
-position = Vector2(928, 136)
-
-[node name="create_range_anchor" type="Node2D" parent="anchors/mirror"]
-position = Vector2(928, 216)
-
-[node name="map_spawn_anchor" type="Node2D" parent="anchors/mirror"]
-position = Vector2(264, 704)
-
-[node name="option_button_anchor" type="Node2D" parent="anchors/mirror"]
-position = Vector2(1136, 344)
-
-[node name="MapOptionButtons" type="Node" parent="."]
-
-[node name="toggleHouse" type="Button" parent="MapOptionButtons"]
-offset_left = 448.0
-offset_top = 64.0
-offset_right = 560.0
-offset_bottom = 95.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "House"
-
-[node name="toggleGrid" type="Button" parent="MapOptionButtons"]
-offset_left = 568.0
-offset_top = 64.0
-offset_right = 680.0
-offset_bottom = 95.0
-text = "Grid"
-
-[node name="toggleNames" type="Button" parent="MapOptionButtons"]
-offset_left = 688.0
-offset_top = 64.0
-offset_right = 800.0
-offset_bottom = 95.0
-text = "Names"
-
-[node name="toggleBoundaries" type="Button" parent="MapOptionButtons"]
-offset_left = 808.0
-offset_top = 64.0
-offset_right = 920.0
-offset_bottom = 95.0
-text = "Boundaries"
-
-[node name="toggleLegend" type="Button" parent="MapOptionButtons"]
-offset_left = 928.0
-offset_top = 64.0
-offset_right = 1040.0
-offset_bottom = 95.0
-text = "Legend"
-
 [connection signal="pressed" from="UILayer/option_button" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MapOptionButtons/toggleHouse" to="." method="_on_toggle_house_pressed"]
-[connection signal="pressed" from="MapOptionButtons/toggleGrid" to="." method="_on_toggle_grid_pressed"]
-[connection signal="pressed" from="MapOptionButtons/toggleNames" to="." method="_on_toggle_names_pressed"]
-[connection signal="pressed" from="MapOptionButtons/toggleBoundaries" to="." method="_on_toggle_boundaries_pressed"]
-[connection signal="pressed" from="MapOptionButtons/toggleLegend" to="." method="_on_toggle_legend_pressed"]
+[connection signal="pressed" from="UILayer/how_to_button" to="." method="_on_how_to_use_pressed"]
+[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleHouse" to="." method="_on_toggle_house_pressed"]
+[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleGrid" to="." method="_on_toggle_grid_pressed"]
+[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleNames" to="." method="_on_toggle_names_pressed"]
+[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleBoundaries" to="." method="_on_toggle_boundaries_pressed"]
+[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleLegend" to="." method="_on_toggle_legend_pressed"]

@@ -4,107 +4,83 @@
 
 [node name="RangeCreate" type="Control"]
 layout_mode = 3
-anchor_right = 0.234
-anchor_bottom = 0.111
-offset_right = -16.2
-offset_bottom = -7.88001
+offset_right = 288.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_ojy7k")
+metadata/_edit_horizontal_guides_ = [48.0, 100.0]
+metadata/_edit_vertical_guides_ = [216.0]
 
 [node name="RangeDropdown" type="OptionButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0246154
-anchor_top = -0.259259
-anchor_right = -0.0246154
-anchor_bottom = -0.259259
-offset_left = 8.87692
-offset_top = 67.1852
-offset_right = 294.877
-offset_bottom = 98.1852
-item_count = 11
+offset_left = 0.999999
+offset_top = 48.0
+offset_right = 287.0
+offset_bottom = 79.0
+item_count = 10
 selected = 0
-popup/item_0/text = "2.5 (Yokai Hearing)"
+popup/item_0/text = "2.5m (Yokai Hearing)"
 popup/item_0/id = 0
-popup/item_1/text = "3 (Crucifix Lv 1)"
+popup/item_1/text = "3m (Crucifix Lv 1)"
 popup/item_1/id = 1
-popup/item_2/text = "4 (Crucifix Lv 2, Onryo Firelight)"
+popup/item_2/text = "4m (Crucifix Lv 2, Onryo Firelight)"
 popup/item_2/id = 2
-popup/item_3/text = "4.5 (Crucifix 1 - Demon)"
+popup/item_3/text = "4.5m (Crucifix 1 - Demon)"
 popup/item_3/id = 3
-popup/item_4/text = "5 (Cruficix 3)"
+popup/item_4/text = "5m (Cruficix 3)"
 popup/item_4/id = 4
-popup/item_5/text = "6 (Crucifix 2 - Demon)"
+popup/item_5/text = "6m (Crucifix 2 - Demon)"
 popup/item_5/id = 5
-popup/item_6/text = "7.5 (Cruficix 3 - Demon)"
+popup/item_6/text = "7.5m (Cruficix 3 - Demon)"
 popup/item_6/id = 6
-popup/item_7/text = "10 (Normal Hearing)"
+popup/item_7/text = "10m (Normal Hearing)"
 popup/item_7/id = 7
-popup/item_8/text = "12 (Myling Footstep)"
+popup/item_8/text = "12m (Myling Footstep)"
 popup/item_8/id = 8
-popup/item_9/text = "15 (Raiju Electronic Hearing)"
+popup/item_9/text = "15m (Raiju Electronic Hearing)"
 popup/item_9/id = 9
-popup/item_10/text = "1m"
-popup/item_10/id = 10
 
 [node name="RangeSelectHeader" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0246154
-anchor_top = -0.259259
-anchor_right = -0.0246154
-anchor_bottom = -0.259259
-offset_left = 8.87692
-offset_top = 33.1852
-offset_right = 164.877
-offset_bottom = 61.1852
+offset_right = 156.0
+offset_bottom = 28.0
 text = "Create Range Circle"
 
 [node name="RangeCreate" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0246154
-anchor_top = -0.259259
-anchor_right = -0.0246154
-anchor_bottom = -0.259259
-offset_left = 231.877
-offset_top = 105.185
-offset_right = 294.877
-offset_bottom = 136.185
+offset_left = 240.0
+offset_top = 104.0
+offset_right = 303.0
+offset_bottom = 135.0
 text = "Create"
 
 [node name="RangeColor" type="ColorPickerButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0246154
-anchor_top = -0.259259
-anchor_right = -0.0246154
-anchor_bottom = -0.259259
-offset_left = 183.877
-offset_top = 105.185
-offset_right = 218.877
-offset_bottom = 137.185
-color = Color(0.411765, 0.411765, 0.411765, 1)
+offset_left = 192.0
+offset_top = 104.0
+offset_right = 227.0
+offset_bottom = 136.0
+color = Color(0.211765, 0.482353, 0.32549, 1)
 
 [node name="RangeClear" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0246154
-anchor_top = -0.259259
-anchor_right = -0.0246154
-anchor_bottom = -0.259259
-offset_left = 7.87692
-offset_top = 105.185
-offset_right = 69.8769
-offset_bottom = 136.185
+offset_top = 104.0
+offset_right = 62.0
+offset_bottom = 135.0
 text = "Clear"
 
 [node name="RangeCircles" type="CanvasLayer" parent="."]
 layer = 3
 
+[connection signal="item_selected" from="RangeDropdown" to="." method="_on_range_dropdown_item_selected"]
 [connection signal="pressed" from="RangeCreate" to="." method="_on_range_create_pressed"]
 [connection signal="pressed" from="RangeCreate" to="RangeCreate" method="_on_pressed"]
 [connection signal="pressed" from="RangeClear" to="." method="_on_range_clear_pressed"]

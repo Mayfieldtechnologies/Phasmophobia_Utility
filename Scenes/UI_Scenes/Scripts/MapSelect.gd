@@ -1,6 +1,7 @@
 extends Control
 
 signal loadMap
+signal clearMap
 
 @export var selected_map_value = ""
 @export var zIndex = 1
@@ -25,3 +26,7 @@ func LoadMap():
 
 func _on_map_load_pressed():
 	emit_signal("loadMap")
+
+
+func _on_range_clear_pressed():
+	emit_signal("clearMap")

@@ -17,23 +17,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dpvdl")
+metadata/_edit_horizontal_guides_ = [48.0, 100.0]
+metadata/_edit_vertical_guides_ = [216.0]
 
 [node name="NodeTimeIndicator" type="Node2D" parent="."]
-position = Vector2(204, 64)
+position = Vector2(204, 60)
 
 [node name="TimeIndicator" type="Sprite2D" parent="NodeTimeIndicator"]
 z_index = 2
+position = Vector2(-0.5, 3)
 scale = Vector2(0.325, 1)
 texture = ExtResource("2_7agcf")
 
 [node name="TimeCurrent" type="RichTextLabel" parent="NodeTimeIndicator"]
-offset_left = -20.0
-offset_top = 24.0
-offset_right = 44.0
-offset_bottom = 48.0
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 28.0
+offset_bottom = -13.0
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 text = "3:00:00"
+scroll_active = false
 
 [node name="SmudgeTimerHeader" type="Label" parent="."]
 layout_mode = 0
@@ -43,77 +47,83 @@ text = "Smudge Timer"
 label_settings = SubResource("LabelSettings_2vvqo")
 
 [node name="TimeBar" type="Sprite2D" parent="."]
-position = Vector2(116, 64)
+self_modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(116, 63)
+scale = Vector2(1, 1.28)
 texture = ExtResource("1_flyxk")
 
 [node name="BeginPlaceholder" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(204, 64)
+position = Vector2(203.5, 63)
 scale = Vector2(0.325, 1)
 texture = ExtResource("3_rfde4")
 
 [node name="DemonPlaceholder" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(140.064, 64)
+position = Vector2(139.564, 63)
 scale = Vector2(0.325, 1)
 texture = ExtResource("3_rfde4")
 
 [node name="StandardPlaceholder" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(108.096, 64)
+position = Vector2(107.596, 63)
 scale = Vector2(0.325, 1)
 texture = ExtResource("3_rfde4")
 
 [node name="SpiritPlaceholder" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(11, 64)
+position = Vector2(10.5, 63)
 scale = Vector2(0.325, 1)
 texture = ExtResource("3_rfde4")
 
 [node name="3Min" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 26.0
+offset_left = 184.0
+offset_top = 80.0
 offset_right = 224.0
-offset_bottom = 50.0
+offset_bottom = 96.0
 theme_override_font_sizes/normal_font_size = 12
-text = "3:00"
+text = "Begin"
+scroll_active = false
 
 [node name="Demon - 2Min" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 26.0
-offset_right = 172.0
-offset_bottom = 43.0
+offset_left = 120.0
+offset_top = 80.0
+offset_right = 164.0
+offset_bottom = 97.0
 theme_override_font_sizes/normal_font_size = 12
 text = "Demon"
 autowrap_mode = 0
 
 [node name="Spirit - 0Min" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 26.0
-offset_right = 33.0
-offset_bottom = 43.0
+offset_top = 80.0
+offset_right = 32.0
+offset_bottom = 97.0
 theme_override_font_sizes/normal_font_size = 12
 text = "Spirit"
 autowrap_mode = 0
 
 [node name="GhostTimerEnded" type="RichTextLabel" parent="."]
+z_index = 1
+z_as_relative = false
 layout_mode = 0
-offset_left = 1.0
-offset_top = 113.0
-offset_right = 335.0
-offset_bottom = 142.0
-theme_override_font_sizes/normal_font_size = 20
+offset_left = 23.0
+offset_top = 49.0
+offset_right = 193.0
+offset_bottom = 73.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 16
+scroll_active = false
 autowrap_mode = 0
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 239.0
-offset_top = 50.0
-offset_right = 334.0
-offset_bottom = 81.0
+offset_left = 120.0
+offset_top = 104.0
+offset_right = 215.0
+offset_bottom = 135.0
 text = "Start Timer"
 script = ExtResource("3_6dh53")
 
@@ -122,7 +132,7 @@ wait_time = 180.0
 one_shot = true
 
 [node name="TimerAudio" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-14, 25)
+position = Vector2(0, 4)
 stream = ExtResource("6_clblo")
 
 [node name="devTestSound" type="Button" parent="."]

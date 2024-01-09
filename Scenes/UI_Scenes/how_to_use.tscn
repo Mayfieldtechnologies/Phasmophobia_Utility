@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv2bb6yrua8h1"]
+
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/how_to_use.gd" id="1_kx368"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i80aq"]
+bg_color = Color(0.133333, 0, 0.0156863, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="HowToUse" type="Control"]
+z_index = 99
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kx368")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 256.0
+offset_right = 984.0
+offset_bottom = 992.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i80aq")
+
+[node name="HowToUseHeader" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 24.0
+offset_right = 464.0
+offset_bottom = 80.0
+bbcode_enabled = true
+text = "[font_size=40][b][u]How To Use[/u][/b][/font_size]"
+
+[node name="SmudgeTimer" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 88.0
+offset_right = 680.0
+offset_bottom = 264.0
+bbcode_enabled = true
+text = "Smudge Timer:
+[indent][ul]Press the [i]Start Timer[/i] button when the ghost has been smudged[/ul]
+[ul]Press the [i]Stop Timer[/i] button when the ghost hunt has begun, or you wish to stop the timer[/ul]
+[ul]Note: If you are using the included AutoHotKey script, you can press Tab in-game to toggle Start/Stop![/ul]
+[/indent]"
+
+[node name="LoadMap" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 248.0
+offset_right = 680.0
+offset_bottom = 392.0
+bbcode_enabled = true
+text = "Maps:
+[indent][ul]Select a map from the dropdown under the [i]Select Map[/i] header.[/ul]
+[ul]Press the [i]Load Map[/i] button.[/ul]
+[ul]Controls:
+[ul]Pan: Middle Click[/ul]
+[ul]Zoom: Mouse Wheel[/ul][/ul][/indent]"
+
+[node name="RangeCircles" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 400.0
+offset_right = 680.0
+offset_bottom = 576.0
+bbcode_enabled = true
+text = "Range Circles:
+[indent][ul]Select a range using the dropdown under the [i]Create Range Circle[/i] header.[/ul]
+[ul]Choose the color of the circle using the [i]Color Picker[/i]
+[ul][font_size=12]Note: A default color will be loaded into the [i]Color Picker[/i] any time a range is selected from the dropdown[/font_size][/ul][/ul]
+[ul]Press the [i]Create[/i] button to create a circle you can move around![/ul]
+[ul]Left-Click near the center of a circle to drag and move it around the map![/ul]
+[ul]Press the [i]Clear[/i] button to clear all circles from the map.[/ul][/indent]"
+
+[node name="Credits" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 608.0
+offset_right = 248.0
+offset_bottom = 704.0
+bbcode_enabled = true
+text = "[u]Credits[/u]
+Developer: Alamaxia
+Map Designer: Phantismal
+Tester: Trythen"
+
+[node name="Version" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 680.0
+offset_right = 656.0
+offset_bottom = 704.0
+bbcode_enabled = true
+text = "Version: 0.0.05a"
+
+[node name="CloseWindow" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 672.0
+offset_right = 408.0
+offset_bottom = 704.0
+text = "Close"
+
+[connection signal="pressed" from="Panel/CloseWindow" to="." method="_on_button_pressed"]
