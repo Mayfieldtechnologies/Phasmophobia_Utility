@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1704770447
+::res://::1704821556
 default_bus_layout.tres::AudioBusLayout::6179811853606620067::1703304769::0::1::::<><>::
-export_presets.cfg::TextFile::-1::1704507140::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1704781814::0::1::::<><>::
 icon.svg::CompressedTexture2D::7189205322131884800::1700082502::1700082508::1::::<><>::
 ::res://Distances/::1701475211
 1m.png::CompressedTexture2D::1451437719310176987::1700083194::1700083200::1::::<><>::
@@ -45,8 +45,8 @@ Sunny Meadows Mental Institution.png::CompressedTexture2D::2163572904429270964::
 6Tanglewood-RoomBoundaries.png::CompressedTexture2D::3579882887162236136::1704416462::1704421899::1::::<><>::
 6Tanglewood-RoomNames.png::CompressedTexture2D::1741044898953262289::1704416460::1704421899::1::::<><>::
 ::res://Scenes/::1704421929
-::res://Scenes/Distance_Scenes/::1704771871
-1m.tscn::PackedScene::7006453215229410062::1704771871::0::1::::<><>::res://Scenes/Distance_Scenes/1m_script.gd<>uid://uxc75cateds2::::res://Distances/1m.png
+::res://Scenes/Distance_Scenes/::1704781124
+1m.tscn::PackedScene::7006453215229410062::1704781124::0::1::::<><>::res://Scenes/Distance_Scenes/1m_script.gd<>uid://uxc75cateds2::::res://Distances/1m.png
 1m_script.gd::GDScript::-1::1704745745::0::1::::<>Node2D<>::
 2.5m.tscn::PackedScene::1707901717345655370::1703800600::0::1::::<><>::res://Scenes/Distance_Scenes/1m_script.gd<>uid://bfxmvi5he255j::::res://Distances/2.5m.png
 3m.tscn::PackedScene::8101638712988101740::1703800616::0::1::::<><>::res://Scenes/Distance_Scenes/1m_script.gd<>uid://dgg127ylnwpyk::::res://Distances/3m.png
@@ -58,39 +58,41 @@ Sunny Meadows Mental Institution.png::CompressedTexture2D::2163572904429270964::
 10m.tscn::PackedScene::353131218559842483::1703800778::0::1::::<><>::res://Scenes/Distance_Scenes/1m_script.gd<>uid://qbiao2likiat::::res://Distances/10m.png
 12m.tscn::PackedScene::2538486360828726451::1703800828::0::1::::<><>::res://Scenes/Distance_Scenes/1m_script.gd<>uid://u1dinuv1vv1e::::res://Distances/12m.png
 15m.tscn::PackedScene::4929300797395004873::1703800875::0::1::::<><>::res://Scenes/Distance_Scenes/1m_script.gd<>uid://b37xwg58o6yua::::res://Distances/15m.png
-::res://Scenes/Fantismal Maps/::1704771871
-6Tanglewood.gd::GDScript::-1::1704746888::0::1::::<>Node2D<>::
-6Tanglewood.tscn::PackedScene::2051550946719484440::1704771871::0::1::::<><>::res://Scenes/Fantismal Maps/6Tanglewood.gd<>uid://56gdu3081tpk::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-Base-Transparent.png<>uid://braefbh4uq1gu::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-RoomBoundaries.png<>uid://y2m0w6ct4ixl::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-RoomNames.png<>uid://bchprhd6axdn3::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-Grid-Darker.png<>uid://cdjkpxab0iy2e::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-Legend.png
+::res://Scenes/Fantismal Maps/::1704781124
+6Tanglewood.gd::GDScript::-1::1704781124::0::1::::<>Node2D<>::
+6Tanglewood.tscn::PackedScene::2051550946719484440::1704781124::0::1::::<><>::res://Scenes/Fantismal Maps/6Tanglewood.gd<>uid://56gdu3081tpk::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-Base-Transparent.png<>uid://braefbh4uq1gu::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-RoomBoundaries.png<>uid://y2m0w6ct4ixl::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-RoomNames.png<>uid://bchprhd6axdn3::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-Grid-Darker.png<>uid://cdjkpxab0iy2e::::res://Maps/Fantismal/6 Tanglewood/6Tanglewood-Legend.png
 ::res://Scenes/Map_Scenes/::1704308351
 6Tanglewood.tscn::PackedScene::3881921499858796292::1704308351::0::1::::<><>::uid://bq5re1led38s5::::res://Maps/Fantismal/6 Tanglewood.png
 6Tanglewood_script.gd::GDScript::-1::1700089876::0::1::::<>Node2D<>::
-::res://Scenes/UI_Scenes/::1704771871
-main.tscn::PackedScene::2943596528889530038::1704771871::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/main.gd<>uid://41r0wkxisndx::::res://Scenes/UI_Scenes/Sprites/White.png<>uid://cgbg6vhvf2jsv::::res://Scenes/UI_Scenes/map_select.tscn<>uid://bfkskjewlmywf::::res://Scenes/UI_Scenes/Sprites/main_background_wide.png<>uid://u656in1y4mvu::::res://Scenes/UI_Scenes/Timer.tscn<>uid://b2olnbe50ltxv::::res://Scenes/UI_Scenes/range_create.tscn
-map_select.tscn::PackedScene::5196459583301988517::1704771871::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/MapSelect.gd
-options.tscn::PackedScene::9483539839903650::1704771871::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/options.gd<>uid://cqx88reti4gl3::::res://Scenes/UI_Scenes/volume.tscn
-range_create.tscn::PackedScene::4311111912817501079::1704771871::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/range_create.gd
-Timer.gdshader::Shader::-1::1704771871::0::1::::<><>::
-Timer.tscn::PackedScene::1469649894014352502::1704771871::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/Timer_new.gd<>uid://cpg80k1507rv::::res://Scenes/UI_Scenes/Sprites/TimeBar.png<>uid://cqkqppycqfmdj::::res://Scenes/UI_Scenes/Sprites/TimeIndicator.png<>res://Scenes/UI_Scenes/Scripts/StartButton.gd<>uid://bw7pr5640layh::::res://Scenes/UI_Scenes/Sprites/TimePlaceholder.png<>uid://btg5q4fagb7so::::res://Sounds/Timer/demon_timer_ending_in.mp3
+::res://Scenes/UI_Scenes/::1704781906
+how_to_use.tscn::PackedScene::8689030135722596332::1704781125::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/how_to_use.gd
+main.tscn::PackedScene::2943596528889530038::1704781227::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/main.gd<>uid://41r0wkxisndx::::res://Scenes/UI_Scenes/Sprites/White.png<>uid://cgbg6vhvf2jsv::::res://Scenes/UI_Scenes/map_select.tscn<>uid://bfkskjewlmywf::::res://Scenes/UI_Scenes/Sprites/main_background_wide.png<>uid://u656in1y4mvu::::res://Scenes/UI_Scenes/Timer.tscn<>uid://b2olnbe50ltxv::::res://Scenes/UI_Scenes/range_create.tscn
+map_select.tscn::PackedScene::5196459583301988517::1704781124::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/MapSelect.gd
+options.tscn::PackedScene::9483539839903650::1704781124::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/options.gd<>uid://cqx88reti4gl3::::res://Scenes/UI_Scenes/volume.tscn
+range_create.tscn::PackedScene::4311111912817501079::1704781124::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/range_create.gd
+Timer.gdshader::Shader::-1::1704781906::0::1::::<><>::
+Timer.tscn::PackedScene::1469649894014352502::1704781124::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/Timer_new.gd<>uid://cpg80k1507rv::::res://Scenes/UI_Scenes/Sprites/TimeBar.png<>uid://cqkqppycqfmdj::::res://Scenes/UI_Scenes/Sprites/TimeIndicator.png<>res://Scenes/UI_Scenes/Scripts/StartButton.gd<>uid://bw7pr5640layh::::res://Scenes/UI_Scenes/Sprites/TimePlaceholder.png<>uid://btg5q4fagb7so::::res://Sounds/Timer/demon_timer_ending_in.mp3
 ui.tscn::PackedScene::5934386173811605211::1703798078::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/ui_menu.gd
 volume.tscn::PackedScene::5945407045849530994::1704687743::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/volume.gd
 volume_test.tscn::PackedScene::2833431098309771866::1703304504::0::1::::<><>::res://Scenes/UI_Scenes/Scripts/volume_test.gd
-::res://Scenes/UI_Scenes/Scripts/::1704769089
-main.gd::GDScript::-1::1704769089::0::1::::<>Node2D<>::
+::res://Scenes/UI_Scenes/Scripts/::1704780593
+how_to_use.gd::GDScript::-1::1704780389::0::1::::<>Control<>::
+main.gd::GDScript::-1::1704780593::0::1::::<>Node2D<>::
 main_menu.gd::GDScript::-1::1700087119::0::1::::<>Node2D<>::
 MapDropdown.gd::GDScript::-1::1700087957::0::1::::<>OptionButton<>::
 MapLoad.gd::GDScript::-1::1701660162::0::1::::<>Control<>::
-MapSelect.gd::GDScript::-1::1704422975::0::1::::<>Control<>::
+MapSelect.gd::GDScript::-1::1704780031::0::1::::<>Control<>::
 options.gd::GDScript::-1::1703817617::0::1::::<>Control<>::
 RangeClear.gd::GDScript::-1::1703819053::0::1::::<>Button<>::
 RangeCreate.gd::GDScript::-1::1701476820::0::1::::<>Control<>::
-range_create.gd::GDScript::-1::1704746079::0::1::::<>Control<>::
+range_create.gd::GDScript::-1::1704773867::0::1::::<>Control<>::
 StartButton.gd::GDScript::-1::1701127078::0::1::::<>Button<>::
 TimeIndicator.gd::GDScript::-1::1701150828::0::1::::<>Control<>::
 Timer_new.gd::GDScript::-1::1703818960::0::1::::<>Control<>::
 ui_menu.gd::GDScript::-1::1700087730::0::1::::<>Control<>::
 volume.gd::GDScript::-1::1703816082::0::1::::<>Control<>::
 volume_test.gd::GDScript::-1::1703304345::0::1::::<>Node<>::
-::res://Scenes/UI_Scenes/Sprites/::1704770031
+::res://Scenes/UI_Scenes/Sprites/::1704781763
 Black.png::CompressedTexture2D::1050800074977524622::1700093155::1700093161::1::::<><>::
 Gray.png::CompressedTexture2D::7853453929066544695::1704746511::1704746512::1::::<><>::
 Green.png::CompressedTexture2D::4488094579720761150::1704746488::1704746512::1::::<><>::

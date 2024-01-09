@@ -129,15 +129,16 @@ metadata/_edit_use_anchors_ = true
 
 [node name="current_map" type="Node" parent="MapLayer"]
 
-[node name="MapsByFantismal" type="RichTextLabel" parent="MapLayer"]
-offset_left = 968.0
-offset_top = 1000.0
+[node name="Credits" type="RichTextLabel" parent="MapLayer"]
+offset_left = 912.0
+offset_top = 960.0
 offset_right = 1236.0
-offset_bottom = 1043.0
+offset_bottom = 1040.0
 theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-text = "Maps by @Fantismal"
+text = "Developed by Alamaxia
+Maps by Fantismal"
 
 [node name="Simple Controls" type="RichTextLabel" parent="MapLayer"]
 offset_left = 72.0
