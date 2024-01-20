@@ -5,5 +5,3 @@ extends OptionButton
 
 func _on_item_selected(index):
 	selected_map = get_item_text(index)
-	print(selected_map)
-	print("foo")

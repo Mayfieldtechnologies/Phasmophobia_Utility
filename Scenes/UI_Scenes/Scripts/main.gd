@@ -26,13 +26,17 @@ extends Node2D
 @onready var options_scene = preload("res://Scenes/UI_Scenes/options.tscn")
 @onready var how_to_scene = preload("res://Scenes/UI_Scenes/how_to_use.tscn")
 
-# Map Layer Togglesd
+# Map Layer Toggles
 @onready var map_option_buttons = $MapLayer/MapOptionButtons
 @onready var toggle_house = $MapLayer/MapOptionButtons/toggleHouse
 @onready var toggle_grid = $MapLayer/MapOptionButtons/toggleGrid
 @onready var toggle_boundaries = $MapLayer/MapOptionButtons/toggleBoundaries
 @onready var toggle_legend = $MapLayer/MapOptionButtons/toggleLegend
 @onready var togggle_names = $MapLayer/MapOptionButtons/toggleNames
+
+@onready var zoom_level = $MapLayer/ZoomLevel
+
+@onready var MapPlaceholder = $MapLayer/MapPlaceholder
 
 # Instantiated Scenes
 var instMap
@@ -49,11 +53,11 @@ var slider_value = 50
 var range_radius = 0
 var dist_1m = 0.0
 
+
 ##########################
 # END GLOBAL DELCARATION #
 ##########################
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	MapSelect.loadMap.connect(_load_map_button_pressed)
 	MapSelect.clearMap.connect(_clear_map_button_pressed)
@@ -75,24 +79,45 @@ func _ready():
 func _load_map_button_pressed():
 	if(instMap != null):
 		instMap.queue_free()
+	
+	# Get Selected Map Info	
+	var selected_map_value = MapSelect.get_selected_map()
+
+	if selected_map_value == "":
+		return
 		
-	var selected_map_index = MapDropdown.selected
-	var selected_map_value = MapDropdown.get_item_text(selected_map_index)
+	var selected_map_folder = MapSelect.get_map_folder(selected_map_value)
 	
-	var sceneMap = load("res://Scenes/Fantismal Maps/" + selected_map_value.replace(" ","") +".tscn")
+	# Hide Map Placeholder
+	MapPlaceholder.visible = false
+	
+	# Load Blank House Scene
+	var sceneMap = load("res://Scenes/Fantismal Maps/House.tscn")
 	instMap = sceneMap.instantiate()
-	
+	instMap.set_zoom_string.connect(_set_zoom_string)
+		
+	# Make instMap a child of current_map
 	current_map.add_child(instMap)
-	instMap.z_index = 2
 	
+	# Set properties of instMap
+	instMap.z_index = 2
 	instMap.global_position = get_node("anchors/" + anchor_node +"/map_spawn_anchor").global_position
 	
 	
+	
 	set_range_circle_radius()
-	instMap.set_default_scale(selected_map_value)
+	
+	
+	var mapScale = instMap.get_default_scale(selected_map_value)
+	print(mapScale)
+	
 	var x_offset = instMap.get_x_offset(selected_map_value)
 	var y_offset = instMap.get_y_offset(selected_map_value)
 	instMap.global_position += Vector2(x_offset,y_offset)
+	instMap.scale = Vector2(mapScale,mapScale)
+	
+	# Set instMap's default properties
+	instMap.set_default_properties(selected_map_value)
 
 # Opens the option scene
 func _on_options_pressed():
@@ -212,11 +237,10 @@ func _process(delta):
 			instMap.stop_panning()
 
 func _on_range_create(radius,color):
-	print("Main Received Range Create")
+	#print("Main Received Range Create")
 	
 	if(instMap != null):
-		instMap.create_range(radius * dist_1m ,color)
-
+		instMap.create_range(radius * dist_1m, color)
 
 func _on_how_to_use_pressed():
 	if(instHowTo == null):
@@ -231,3 +255,8 @@ func _close_how_to():
 func _clear_map_button_pressed():
 	if(instMap != null):
 		instMap.queue_free()
+		MapPlaceholder.visible = true
+		MapSelect.reset_dropdown()
+
+func _set_zoom_string(zoom):
+	zoom_level.text = "Zoom: " + str(zoom*100) + "%"

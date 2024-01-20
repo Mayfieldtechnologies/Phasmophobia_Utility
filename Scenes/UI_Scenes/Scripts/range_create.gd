@@ -11,7 +11,7 @@ signal GetRadius
 @onready var RangeCircles = $RangeCircles
 @onready var RangeColor = $RangeColor
 
-var blankCircle = preload("res://Scenes/Distance_Scenes/1m.tscn")
+var blankCircle = preload("res://Scenes/Distance_Scenes/BlankCircle.tscn")
 
 @onready var dictScene = {
 	"1m": "res://Scenes/Distance_Scenes/1m.tscn",
@@ -30,54 +30,66 @@ var blankCircle = preload("res://Scenes/Distance_Scenes/1m.tscn")
 @onready var dictScene_2 = {
 	"1": {
 		"Color": "red",
-		"Scene": "res://Scenes/Distance_Scenes/1m.tscn"
+		"Scene": "res://Scenes/Distance_Scenes/BlankCircle.tscn"
 	}
 	
 }
 
 @onready var distMultiplier = {
 	"1m": {
-		"Multiplier": 1,
+		"Multiplier": 1.0,
 		"DefaultColor": Color.BLACK
 	},
-	"2.5m (Yokai Hearing)": {
+	"Yokai Elec. Hearing - 2.5m": {
 		"Multiplier": 2.5,
-		"DefaultColor": Color.AQUA
+		"DefaultColor": Color.DARK_SLATE_BLUE
 	},
-	"3m (Crucifix Lv 1)": {
-		"Multiplier": 3,
+	"Crucifix Lv 1 - 3.0m": {
+		"Multiplier": 3.0,
 		"DefaultColor": Color.SANDY_BROWN
 	},
-	"4m (Crucifix Lv 2, Onryo Firelight)": {
-		"Multiplier": 4,
+	"Crucifix Lv 2 - 4.0m": {
+		"Multiplier": 4.0,
 		"DefaultColor": Color.DARK_ORANGE
 	},
-	"4.5m (Crucifix 1 - Demon)": {
+	"Onryo Firelight Protection - 4.0m": {
+		"Multiplier": 4.0,
+		"DefaultColor": Color.DARK_ORANGE
+	},
+	"Crucifix Lv 1 (Demon) - 4.5m": {
 		"Multiplier": 4.5,
 		"DefaultColor": Color.SADDLE_BROWN
 	},
-	"5m (Cruficix 3)": {
-		"Multiplier": 5,
+	"Crucifix Lv 3 - 5.0m": {
+		"Multiplier": 5.0,
 		"DefaultColor": Color.SEA_GREEN
 	},
-	"6m (Crucifix 2 - Demon)": {
-		"Multiplier": 6,
+	"Crucifix Lv 2 (Demon) - 6.0m": {
+		"Multiplier": 6.0,
 		"DefaultColor": Color.ORANGE_RED
 	},
-	"7.5m (Cruficix 3 - Demon)": {
+	"Crucifix Lv 3 (Demon) - 7.5m": {
 		"Multiplier": 7.5,
 		"DefaultColor": Color.DARK_GREEN
 	},
-	"10m (Normal Hearing)": {
-		"Multiplier": 10,
-		"DefaultColor": Color.DIM_GRAY
+	"Ghost Elec. Detection - 7.5m": {
+		"Multiplier": 7.5,
+		"DefaultColor": Color.DARK_GREEN
 	},
-	"12m (Myling Footstep)": {
-		"Multiplier": 12,
+	"Global Chat Detection - 9.0m": {
+		"Multiplier": 9.0,
+		"DefaultColor": Color.DARK_GREEN
+	},
+	"Elec. Interference Range - 10.0m": {
+		"Multiplier": 10.0,
+		"DefaultColor": Color.DIM_GRAY
+	}, 
+	"Myling Footstep Audible - 12.0m": {
+		"Multiplier": 12.0,
 		"DefaultColor": Color.CADET_BLUE
 	},
-	"15m (Raiju Electronic Hearing)": {
-		"Multiplier": 15,
+	"Raiju Elec. Detection - 15.0m": {
+		"Multiplier": 15.0,
 		"DefaultColor": Color.YELLOW
 	}	
 }
@@ -95,13 +107,7 @@ func get_selected_range_value():
 	#return selected_range_value
 
 func _on_range_create_pressed():
-	if(!new_method):
-		#load_range()
-		pass
-	else:
 		new_load_range()
-	
-
 
 func new_load_range():
 	get_selected_range_value()
@@ -111,30 +117,7 @@ func new_load_range():
 	range_multiply = distMultiplier[selected_range_value]["Multiplier"]
 	
 	emit_signal("CreateRange",range_multiply,RangeColor.color)
-	print("Range Create Button Pressed.  Radius: " + str(range_multiply) + "Color: " + str(RangeColor.color))
-
-'''
-func load_range():	
-	get_selected_range_value()
-	get_radius()
-	
-	var instRange = blankCircle.instantiate()
-	#instRange.scale = Vector2(global_scale,global_scale)
-	
-	RangeCircles.add_child(instRange)
-	
-	instRange.global_position = Vector2(800,400)
-	
-	instRange.modulate = RangeColor.color
-	instRange.modulate.a = 0.5
-	instRange.z_index = zIndex
-	zIndex += 1
-	
-	range_multiply = distMultiplier[selected_range_value]
-	range_radius *= range_multiply
-	print("circle property rangge: " + str(range_radius))
-	instRange.set_circle_properties(range_radius, RangeColor.color)
-'''
+	#print("Range Create Button Pressed.  Radius: " + str(range_multiply) + "Color: " + str(RangeColor.color))
 
 func clear_ranges():
 	for circle in get_tree().get_nodes_in_group("Circle"):

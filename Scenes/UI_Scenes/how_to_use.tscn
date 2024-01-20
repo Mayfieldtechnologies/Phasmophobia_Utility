@@ -45,41 +45,40 @@ text = "[font_size=40][b][u]How To Use[/u][/b][/font_size]"
 [node name="SmudgeTimer" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 88.0
+offset_top = 416.0
 offset_right = 680.0
-offset_bottom = 264.0
+offset_bottom = 592.0
 bbcode_enabled = true
 text = "Smudge Timer:
 [indent][ul]Press the [i]Start Timer[/i] button when the ghost has been smudged[/ul]
 [ul]Press the [i]Stop Timer[/i] button when the ghost hunt has begun, or you wish to stop the timer[/ul]
-[ul]Note: If you are using the included AutoHotKey script, you can press Tab in-game to toggle Start/Stop![/ul]
+[ul]If you are using the included AutoHotKey script, you can press Tab in-game to toggle Start/Stop![/ul]
 [/indent]"
 
 [node name="LoadMap" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 248.0
+offset_top = 96.0
 offset_right = 680.0
-offset_bottom = 392.0
+offset_bottom = 240.0
 bbcode_enabled = true
 text = "Maps:
 [indent][ul]Select a map from the dropdown under the [i]Select Map[/i] header.[/ul]
 [ul]Press the [i]Load Map[/i] button.[/ul]
 [ul]Controls:
-[ul]Pan: Middle Click[/ul]
+[ul]Pan: Middle Click and Drag[/ul]
 [ul]Zoom: Mouse Wheel[/ul][/ul][/indent]"
 
 [node name="RangeCircles" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 400.0
+offset_top = 256.0
 offset_right = 680.0
-offset_bottom = 576.0
+offset_bottom = 432.0
 bbcode_enabled = true
 text = "Range Circles:
 [indent][ul]Select a range using the dropdown under the [i]Create Range Circle[/i] header.[/ul]
-[ul]Choose the color of the circle using the [i]Color Picker[/i]
-[ul][font_size=12]Note: A default color will be loaded into the [i]Color Picker[/i] any time a range is selected from the dropdown[/font_size][/ul][/ul]
+[ul]The default color of the circle can be changed using the [i]Color Picker[/i][/ul]
 [ul]Press the [i]Create[/i] button to create a circle you can move around![/ul]
 [ul]Left-Click near the center of a circle to drag and move it around the map![/ul]
 [ul]Press the [i]Clear[/i] button to clear all circles from the map.[/ul][/indent]"
@@ -87,14 +86,15 @@ text = "Range Circles:
 [node name="Credits" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 608.0
+offset_top = 576.0
 offset_right = 248.0
 offset_bottom = 704.0
 bbcode_enabled = true
 text = "[u]Credits[/u]
 Developer: Alamaxia
-Map Designer: Phantismal
-Tester: Trythen"
+Map Designer: Fantismal
+Testers: 	Trythen
+				Fantismal"
 
 [node name="Version" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
@@ -103,7 +103,7 @@ offset_top = 680.0
 offset_right = 656.0
 offset_bottom = 704.0
 bbcode_enabled = true
-text = "Version: 0.0.05a"
+text = "Version: 0.1.1 a"
 
 [node name="CloseWindow" type="Button" parent="Panel"]
 layout_mode = 0

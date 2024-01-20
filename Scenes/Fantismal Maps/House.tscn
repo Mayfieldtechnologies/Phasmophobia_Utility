@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgx8at0pytj0n"]
+
+[ext_resource type="Script" path="res://Scenes/Fantismal Maps/6Tanglewood.gd" id="1_om8up"]
+[ext_resource type="Texture2D" uid="uid://cxo7iu1tjnddf" path="res://Maps/Fantismal/Camp Woodwind/House.png" id="2_2q1tp"]
+[ext_resource type="Texture2D" uid="uid://bv0bfkcmyendk" path="res://Maps/Fantismal/Camp Woodwind/Rooms.png" id="3_o41e5"]
+[ext_resource type="Texture2D" uid="uid://crjk8hjs72d5l" path="res://Maps/Fantismal/Camp Woodwind/Names.png" id="4_een01"]
+[ext_resource type="Texture2D" uid="uid://dp6fi3jt6uk7a" path="res://Maps/Fantismal/Camp Woodwind/Grid.png" id="5_85atr"]
+[ext_resource type="Texture2D" uid="uid://dlhb8u5pi86os" path="res://Maps/Fantismal/Camp Woodwind/POI.png" id="6_k3rkk"]
+[ext_resource type="Texture2D" uid="uid://bfkskjewlmywf" path="res://sprites/main_background_wide.png" id="7_4w0he"]
+
+[node name="House" type="Node2D"]
+script = ExtResource("1_om8up")
+
+[node name="RangeCircles" type="Node2D" parent="."]
+
+[node name="HouseLayer" type="Node2D" parent="."]
+
+[node name="House" type="Sprite2D" parent="HouseLayer"]
+visibility_layer = 3
+position = Vector2(605, 401)
+texture = ExtResource("2_2q1tp")
+
+[node name="Rooms" type="Sprite2D" parent="HouseLayer"]
+visibility_layer = 3
+position = Vector2(605, 401)
+texture = ExtResource("3_o41e5")
+
+[node name="Names" type="Sprite2D" parent="HouseLayer"]
+visibility_layer = 3
+position = Vector2(605, 401)
+texture = ExtResource("4_een01")
+
+[node name="Grid" type="Sprite2D" parent="HouseLayer"]
+visibility_layer = 3
+position = Vector2(605, 401)
+texture = ExtResource("5_85atr")
+
+[node name="POI" type="Sprite2D" parent="HouseLayer"]
+visibility_layer = 3
+position = Vector2(605, 401)
+texture = ExtResource("6_k3rkk")
+
+[node name="m_left" type="Node2D" parent="HouseLayer"]
+visible = false
+position = Vector2(437, 805)
+
+[node name="m_right" type="Node2D" parent="HouseLayer"]
+visible = false
+position = Vector2(460, 805)
+
+[node name="map_spawn_anchor" type="Node2D" parent="."]
+visible = false
+position = Vector2(1, 1)
+
+[node name="MapWindow" type="Sprite2D" parent="map_spawn_anchor"]
+visible = false
+visibility_layer = 5
+z_index = 4
+position = Vector2(586, 348)
+texture = ExtResource("7_4w0he")
+
+[node name="Credits" type="RichTextLabel" parent="."]
+visible = false
+z_index = 2
+offset_left = 546.0
+offset_top = 805.0
+offset_right = 1170.0
+offset_bottom = 853.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[ Developed by Alamaxia ]  [ Maps by Fantismal ]"
+
+[node name="Simple Controls" type="RichTextLabel" parent="."]
+visible = false
+z_index = 2
+texture_filter = 2
+offset_left = 10.0
+offset_top = 773.0
+offset_right = 282.0
+offset_bottom = 845.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = " Pan: Middle-Click
+ Zoom: Mouse Wheel"
+
+[node name="ZoomLevel" type="RichTextLabel" parent="."]
+visible = false
+z_index = 2
+offset_left = 347.0
+offset_top = 813.0
+offset_right = 483.0
+offset_bottom = 843.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Zoom: 100%"

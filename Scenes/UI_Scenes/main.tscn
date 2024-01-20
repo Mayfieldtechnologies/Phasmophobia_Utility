@@ -1,15 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://bh65utdysrqpq"]
 
 [ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/main.gd" id="1_5h7tm"]
-[ext_resource type="Texture2D" uid="uid://41r0wkxisndx" path="res://Scenes/UI_Scenes/Sprites/White.png" id="3_7uetf"]
+[ext_resource type="Texture2D" uid="uid://41r0wkxisndx" path="res://sprites/White.png" id="3_7uetf"]
 [ext_resource type="PackedScene" uid="uid://cgbg6vhvf2jsv" path="res://Scenes/UI_Scenes/map_select.tscn" id="4_o4kg8"]
-[ext_resource type="Texture2D" uid="uid://bfkskjewlmywf" path="res://Scenes/UI_Scenes/Sprites/main_background_wide.png" id="5_wuj16"]
+[ext_resource type="Texture2D" uid="uid://bfkskjewlmywf" path="res://sprites/main_background_wide.png" id="5_wuj16"]
 [ext_resource type="PackedScene" uid="uid://u656in1y4mvu" path="res://Scenes/UI_Scenes/Timer.tscn" id="6_3hylg"]
 [ext_resource type="PackedScene" uid="uid://b2olnbe50ltxv" path="res://Scenes/UI_Scenes/range_create.tscn" id="7_32utt"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5h7tm")
-metadata/_edit_horizontal_guides_ = [248.0]
+metadata/_edit_horizontal_guides_ = [248.0, 1024.0]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 layer = 10
@@ -22,13 +22,14 @@ offset_bottom = -920.0
 metadata/_edit_horizontal_guides_ = [48.0]
 
 [node name="MapSelect" parent="UILayer" instance=ExtResource("4_o4kg8")]
-offset_left = 304.0
+offset_left = 296.0
 offset_top = 24.0
-offset_right = -756.0
+offset_right = -764.0
 offset_bottom = -968.0
 metadata/_edit_horizontal_guides_ = [48.0]
 
 [node name="RangeCreate" parent="UILayer" instance=ExtResource("7_32utt")]
+anchors_preset = -1
 anchor_right = 1.483
 anchor_bottom = 1.0
 offset_left = 544.0
@@ -111,7 +112,18 @@ offset_left = 256.0
 offset_top = 40.0
 offset_right = 368.0
 offset_bottom = 71.0
-text = "Legend"
+text = "POIs"
+metadata/_edit_use_anchors_ = true
+
+[node name="toggleSafeSpots" type="Button" parent="MapLayer/MapOptionButtons"]
+visibility_layer = 7
+z_index = 4
+offset_left = 256.0
+offset_top = 96.0
+offset_right = 368.0
+offset_bottom = 127.0
+disabled = true
+text = "Safe Spots"
 metadata/_edit_use_anchors_ = true
 
 [node name="ToggleMapLayers" type="RichTextLabel" parent="MapLayer/MapOptionButtons"]
@@ -130,26 +142,51 @@ metadata/_edit_use_anchors_ = true
 [node name="current_map" type="Node" parent="MapLayer"]
 
 [node name="Credits" type="RichTextLabel" parent="MapLayer"]
-offset_left = 912.0
-offset_top = 960.0
-offset_right = 1236.0
-offset_bottom = 1040.0
-theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
-theme_override_font_sizes/normal_font_size = 26
-bbcode_enabled = true
-text = "Developed by Alamaxia
-Maps by Fantismal"
-
-[node name="Simple Controls" type="RichTextLabel" parent="MapLayer"]
-offset_left = 72.0
-offset_top = 960.0
-offset_right = 340.0
+z_index = 2
+offset_left = 904.0
+offset_top = 1008.0
+offset_right = 1240.0
 offset_bottom = 1032.0
 theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
-theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
-text = "Pan: Middle-Click
-Zoom: Mouse Wheel"
+text = "[ Developed by Alamaxia ]  [ Maps by Fantismal ]"
+
+[node name="Simple Controls" type="RichTextLabel" parent="MapLayer"]
+z_index = 2
+texture_filter = 2
+offset_left = 80.0
+offset_top = 968.0
+offset_right = 416.0
+offset_bottom = 1048.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Pan: Middle-Click and Drag
+Zoom: Mouse Wheel
+Move Circle: Left Click Center of Circle"
+
+[node name="ZoomLevel" type="RichTextLabel" parent="MapLayer"]
+z_index = 2
+offset_left = 960.0
+offset_top = 200.0
+offset_right = 1096.0
+offset_bottom = 230.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Zoom: 100%"
+
+[node name="MapPlaceholder" type="RichTextLabel" parent="MapLayer"]
+z_index = 2
+offset_left = 368.0
+offset_top = 464.0
+offset_right = 920.0
+offset_bottom = 688.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.498039)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "Select a map from the dropdown above and press Load"
 
 [node name="RangeLayer" type="CanvasLayer" parent="."]
 layer = 3
@@ -161,7 +198,6 @@ layer = 3
 [node name="normal" type="Node" parent="anchors"]
 
 [node name="smudge_anchor" type="Node2D" parent="anchors/normal"]
-visible = false
 position = Vector2(64, 24)
 
 [node name="select_map_anchor" type="Node2D" parent="anchors/normal"]
@@ -188,15 +224,14 @@ position = Vector2(864, 32)
 visible = false
 position = Vector2(1112, 200)
 
+[node name="create_range_anchor2" type="Node2D" parent="anchors/normal"]
+position = Vector2(1024, 320)
+
 [node name="mirror" type="Node" parent="anchors"]
 
 [node name="smudge_anchor" type="Node2D" parent="anchors/mirror"]
 visible = false
-position = Vector2(1000, 24)
-
-[node name="select_map_anchor" type="Node2D" parent="anchors/mirror"]
-visible = false
-position = Vector2(768, 24)
+position = Vector2(1024, 24)
 
 [node name="create_range_anchor" type="Node2D" parent="anchors/mirror"]
 visible = false
@@ -217,6 +252,10 @@ position = Vector2(64, 32)
 [node name="how_to_use_button_anchor" type="Node2D" parent="anchors/mirror"]
 visible = false
 position = Vector2(80, 200)
+
+[node name="select_map_anchor" type="Node2D" parent="anchors/mirror"]
+visible = false
+position = Vector2(768, 24)
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1

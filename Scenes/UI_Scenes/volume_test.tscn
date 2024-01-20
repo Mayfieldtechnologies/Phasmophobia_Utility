@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgmsgw3hpfo2u"]
+[gd_scene load_steps=2 format=3 uid="uid://k4fwxh7vw0jn"]
 
-[ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/volume_test.gd" id="1_b68dw"]
+[sub_resource type="GDScript" id="GDScript_0r0dk"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	print(\"foo\")
+"
 
 [node name="Node" type="Node"]
-script = ExtResource("1_b68dw")
+script = SubResource("GDScript_0r0dk")
 
 [node name="HSlider" type="HSlider" parent="."]
 offset_right = 316.0

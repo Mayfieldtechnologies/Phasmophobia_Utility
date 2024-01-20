@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8a1wvle328oj"]
+
+[ext_resource type="Script" path="res://scripts/BlankCircle.gd" id="1_ayoba"]
+[ext_resource type="Texture2D" uid="uid://uxc75cateds2" path="res://sprites/1m.png" id="2_7vvlm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_43v1g"]
+radius = 25.02
+
+[node name="BlankCircle" type="Node2D" groups=["Circle"]]
+z_index = 1
+script = ExtResource("1_ayoba")
+
+[node name="Area2D" type="Area2D" parent="."]
+visibility_layer = 3
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+shape = SubResource("CircleShape2D_43v1g")
+
+[node name="CenterDot" type="Sprite2D" parent="Area2D"]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.204082, 0.204082)
+texture = ExtResource("2_7vvlm")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
