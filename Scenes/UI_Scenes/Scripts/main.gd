@@ -260,3 +260,8 @@ func _clear_map_button_pressed():
 
 func _set_zoom_string(zoom):
 	zoom_level.text = "Zoom: " + str(zoom*100) + "%"
+
+
+func _on_toggle_safe_spots_pressed():
+	if(instMap != null):
+		instMap.toggle_safe_spots()

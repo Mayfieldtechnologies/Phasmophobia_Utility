@@ -11,7 +11,7 @@ signal set_zoom_string(zoom)
 @onready var nodePOI = $HouseLayer/POI
 @onready var node1mLeft = $HouseLayer/m_left
 @onready var node1mRight = $HouseLayer/m_right
-
+@onready var safe_spots = $HouseLayer/SafeSpots
 
 
 @onready var house_properties = {
@@ -110,6 +110,9 @@ func toggle_grid():
 func toggle_legend():
 	nodePOI.visible = !nodePOI.visible
 
+func toggle_safe_spots():
+	safe_spots.visible = !safe_spots.visible
+
 func get_1m_distance():
 	return mDistance
 
@@ -194,6 +197,10 @@ func set_graphics(house):
 	nodeGrid.texture = load("res://Maps/Fantismal/"+ house + "/Grid.png")
 	nodePOI.texture = load("res://Maps/Fantismal/"+ house + "/POI.png")
 	nodeNames.texture = load("res://Maps/Fantismal/"+ house + "/Names.png")
+	if(house == "13 Willow St" || house == "6 Tanglewood"):
+		safe_spots.texture = load("res://Maps/Fantismal/"+ house + "/Safe_Spots.png")
+	else:
+		safe_spots.texture = null
 
 func set_default_properties(house):
 	set_graphics(house)

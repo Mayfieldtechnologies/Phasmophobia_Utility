@@ -122,7 +122,6 @@ offset_left = 256.0
 offset_top = 96.0
 offset_right = 368.0
 offset_bottom = 127.0
-disabled = true
 text = "Safe Spots"
 metadata/_edit_use_anchors_ = true
 
@@ -275,3 +274,4 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="MapLayer/MapOptionButtons/toggleNames" to="." method="_on_toggle_names_pressed"]
 [connection signal="pressed" from="MapLayer/MapOptionButtons/toggleBoundaries" to="." method="_on_toggle_boundaries_pressed"]
 [connection signal="pressed" from="MapLayer/MapOptionButtons/toggleLegend" to="." method="_on_toggle_legend_pressed"]
+[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleSafeSpots" to="." method="_on_toggle_safe_spots_pressed"]
