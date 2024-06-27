@@ -18,7 +18,7 @@ func LoadMap():
 	get_selected_map()
 	get_map_folder(selected_map_value)
 		
-	var sceneMap = load("res://Scenes/Map_Scenes/Fantismal Maps/House.tscn")
+	var sceneMap = load("res://Scenes/Fantismal Maps/House.tscn")
 	var instMap = sceneMap.instantiate()
 	
 
@@ -28,7 +28,7 @@ func get_selected_map():
 	return selected_map_value
 
 func get_map_folder(map_name):
-	map_folder =  "res://Scenes/Map_Scenes/Fantismal/"+map_name+"/"
+	map_folder =  "res://Maps/Fantismal/"+map_name+"/"
 	return map_folder
 
 func _on_map_load_pressed():

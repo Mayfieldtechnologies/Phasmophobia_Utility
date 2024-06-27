@@ -60,6 +60,11 @@ signal set_zoom_string(zoom)
 		"xOffset": 212,
 		"yOffset": 198
 	},
+	"Point Hope Lighthouse": {
+		"default_scale": .40,
+		"xOffset": 312,
+		"yOffset":248
+	},
 	"Prison": {
 		"default_scale": .3,
 		"xOffset": 393,

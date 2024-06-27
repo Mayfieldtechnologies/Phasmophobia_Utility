@@ -5,3 +5,6 @@ res://Scenes/UI_Scenes/hunt_timer.tscn
 res://Scenes/Fantismal Maps/House.tscn
 res://Scenes/UI_Scenes/range_create.tscn
 res://Scenes/Distance_Scenes/BlankCircle.tscn
+res://Scenes/UI_Scenes/map_select.tscn
+res://Scenes/Map_Scenes/6Tanglewood.tscn
+res://Scenes/UI_Scenes/Scripts/options.gd

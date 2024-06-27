@@ -56,7 +56,7 @@ func _on_volume_new_volume(dbValue, sliderValue):
 func get_slider_from_main():
 	slider_value = emit_signal("opt_get_slider_from_main")
 	return slider_value
-	print(slider_value)
+	
 
 func get_volume():
 	master_volume = volume.get_master_volume()

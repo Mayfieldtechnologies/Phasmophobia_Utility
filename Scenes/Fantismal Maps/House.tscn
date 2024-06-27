@@ -1,12 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgx8at0pytj0n"]
+[gd_scene load_steps=3 format=3 uid="uid://bgx8at0pytj0n"]
 
 [ext_resource type="Script" path="res://Scenes/Fantismal Maps/6Tanglewood.gd" id="1_om8up"]
-[ext_resource type="Texture2D" uid="uid://dqs46bc5c2urn" path="res://Maps/Fantismal/13 Willow St/House.png" id="2_mfwyy"]
-[ext_resource type="Texture2D" uid="uid://dek0b3iaxgwmk" path="res://Maps/Fantismal/13 Willow St/Rooms.png" id="3_elmxk"]
-[ext_resource type="Texture2D" uid="uid://bixx0i7vk5323" path="res://Maps/Fantismal/13 Willow St/Names.png" id="4_hm4qn"]
-[ext_resource type="Texture2D" uid="uid://bybxgegmyl00i" path="res://Maps/Fantismal/13 Willow St/Grid.png" id="5_gomc2"]
-[ext_resource type="Texture2D" uid="uid://c8ckr7lrhosuf" path="res://Maps/Fantismal/13 Willow St/POI.png" id="6_ap1iw"]
-[ext_resource type="Texture2D" uid="uid://lmjuf5jwvbdq" path="res://Maps/Fantismal/13 Willow St/Hiding_Spots.png" id="7_2avbi"]
 [ext_resource type="Texture2D" uid="uid://bfkskjewlmywf" path="res://sprites/main_background_wide.png" id="7_4w0he"]
 
 [node name="House" type="Node2D"]
@@ -19,31 +13,25 @@ script = ExtResource("1_om8up")
 [node name="House" type="Sprite2D" parent="HouseLayer"]
 visibility_layer = 3
 position = Vector2(605, 401)
-texture = ExtResource("2_mfwyy")
 
 [node name="Rooms" type="Sprite2D" parent="HouseLayer"]
 visibility_layer = 3
 position = Vector2(605, 401)
-texture = ExtResource("3_elmxk")
 
 [node name="Grid" type="Sprite2D" parent="HouseLayer"]
 visibility_layer = 3
 position = Vector2(605, 401)
-texture = ExtResource("5_gomc2")
 
 [node name="SafeSpots" type="Sprite2D" parent="HouseLayer"]
 position = Vector2(605, 401)
-texture = ExtResource("7_2avbi")
 
 [node name="Names" type="Sprite2D" parent="HouseLayer"]
 visibility_layer = 3
 position = Vector2(605, 401)
-texture = ExtResource("4_hm4qn")
 
 [node name="POI" type="Sprite2D" parent="HouseLayer"]
 visibility_layer = 3
 position = Vector2(605, 401)
-texture = ExtResource("6_ap1iw")
 
 [node name="m_left" type="Node2D" parent="HouseLayer"]
 visible = false
