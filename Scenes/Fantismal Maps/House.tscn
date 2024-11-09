@@ -1,45 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgx8at0pytj0n"]
+[gd_scene load_steps=4 format=3 uid="uid://bgx8at0pytj0n"]
 
 [ext_resource type="Script" path="res://Scenes/Fantismal Maps/6Tanglewood.gd" id="1_om8up"]
+[ext_resource type="Texture2D" uid="uid://dt0d3e2wkbf4p" path="res://Maps/Fantismal/10 Ridgeview Ct/House.png" id="2_cw3o2"]
 [ext_resource type="Texture2D" uid="uid://bfkskjewlmywf" path="res://sprites/main_background_wide.png" id="7_4w0he"]
 
 [node name="House" type="Node2D"]
 script = ExtResource("1_om8up")
 
-[node name="RangeCircles" type="Node2D" parent="."]
+[node name="house_container" type="Node2D" parent="."]
 
-[node name="HouseLayer" type="Node2D" parent="."]
+[node name="HouseLayer" type="Node2D" parent="house_container"]
+unique_name_in_owner = true
 
-[node name="House" type="Sprite2D" parent="HouseLayer"]
+[node name="House" type="Sprite2D" parent="house_container/HouseLayer"]
+unique_name_in_owner = true
+visibility_layer = 3
+position = Vector2(605, 401)
+texture = ExtResource("2_cw3o2")
+
+[node name="Rooms" type="Sprite2D" parent="house_container/HouseLayer"]
+unique_name_in_owner = true
 visibility_layer = 3
 position = Vector2(605, 401)
 
-[node name="Rooms" type="Sprite2D" parent="HouseLayer"]
+[node name="Grid" type="Sprite2D" parent="house_container/HouseLayer"]
+unique_name_in_owner = true
 visibility_layer = 3
 position = Vector2(605, 401)
 
-[node name="Grid" type="Sprite2D" parent="HouseLayer"]
+[node name="SafeSpots" type="Sprite2D" parent="house_container/HouseLayer"]
+unique_name_in_owner = true
+position = Vector2(605, 401)
+
+[node name="Names" type="Sprite2D" parent="house_container/HouseLayer"]
+unique_name_in_owner = true
 visibility_layer = 3
 position = Vector2(605, 401)
 
-[node name="SafeSpots" type="Sprite2D" parent="HouseLayer"]
-position = Vector2(605, 401)
-
-[node name="Names" type="Sprite2D" parent="HouseLayer"]
+[node name="POI" type="Sprite2D" parent="house_container/HouseLayer"]
+unique_name_in_owner = true
 visibility_layer = 3
 position = Vector2(605, 401)
 
-[node name="POI" type="Sprite2D" parent="HouseLayer"]
-visibility_layer = 3
-position = Vector2(605, 401)
-
-[node name="m_left" type="Node2D" parent="HouseLayer"]
+[node name="m_left" type="Node2D" parent="house_container/HouseLayer"]
+unique_name_in_owner = true
 visible = false
 position = Vector2(437, 805)
 
-[node name="m_right" type="Node2D" parent="HouseLayer"]
+[node name="m_right" type="Node2D" parent="house_container/HouseLayer"]
+unique_name_in_owner = true
 visible = false
 position = Vector2(460, 805)
+
+[node name="RangeCircles" type="Node2D" parent="house_container"]
+unique_name_in_owner = true
 
 [node name="map_spawn_anchor" type="Node2D" parent="."]
 visible = false

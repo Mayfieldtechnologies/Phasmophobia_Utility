@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbd4ew5ix2kdy"]
+
+[ext_resource type="StyleBox" uid="uid://b2xsuu4wos7fc" path="res://Scenes/UI_Scenes/Resources/button_normal.tres" id="1_0csa4"]
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/toggle_button.gd" id="2_hhffu"]
+[ext_resource type="StyleBox" uid="uid://ch0v5hktg0pgs" path="res://Scenes/UI_Scenes/Resources/button_pressed.tres" id="3_3ol5x"]
+[ext_resource type="StyleBox" uid="uid://cu4bjo1rnjfvn" path="res://Scenes/UI_Scenes/Resources/button_toggled_normal.tres" id="4_pn8yq"]
+
+[node name="toggle_button" type="Button"]
+visibility_layer = 7
+z_index = 4
+offset_right = 112.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("1_0csa4")
+toggle_mode = true
+script = ExtResource("2_hhffu")
+normal_theme = ExtResource("1_0csa4")
+pressed_theme = ExtResource("3_3ol5x")
+toggled_normal_theme = ExtResource("4_pn8yq")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="." to="." method="toggle_state"]

@@ -98,12 +98,12 @@ Testers: 	Trythen
 
 [node name="Version" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 520.0
+offset_left = 464.0
 offset_top = 680.0
 offset_right = 656.0
 offset_bottom = 704.0
 bbcode_enabled = true
-text = "Version: 0.1.1 a"
+text = "Version: 0.2.11052024a"
 
 [node name="CloseWindow" type="Button" parent="Panel"]
 layout_mode = 0

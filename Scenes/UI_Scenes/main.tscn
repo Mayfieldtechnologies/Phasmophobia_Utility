@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh65utdysrqpq"]
+[gd_scene load_steps=8 format=3 uid="uid://bh65utdysrqpq"]
 
 [ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/main.gd" id="1_5h7tm"]
 [ext_resource type="Texture2D" uid="uid://41r0wkxisndx" path="res://sprites/White.png" id="3_7uetf"]
 [ext_resource type="PackedScene" uid="uid://cgbg6vhvf2jsv" path="res://Scenes/UI_Scenes/map_select.tscn" id="4_o4kg8"]
 [ext_resource type="Texture2D" uid="uid://bfkskjewlmywf" path="res://sprites/main_background_wide.png" id="5_wuj16"]
 [ext_resource type="PackedScene" uid="uid://u656in1y4mvu" path="res://Scenes/UI_Scenes/Timer.tscn" id="6_3hylg"]
+[ext_resource type="PackedScene" uid="uid://drs76sv3dkksq" path="res://Scenes/UI_Scenes/map_option_buttons.tscn" id="6_umma3"]
 [ext_resource type="PackedScene" uid="uid://b2olnbe50ltxv" path="res://Scenes/UI_Scenes/range_create.tscn" id="7_32utt"]
 
 [node name="Main" type="Node2D"]
@@ -61,82 +62,8 @@ z_index = 4
 position = Vector2(650, 540)
 texture = ExtResource("5_wuj16")
 
-[node name="MapOptionButtons" type="Node2D" parent="MapLayer"]
+[node name="MapOptionButtons" parent="MapLayer" instance=ExtResource("6_umma3")]
 position = Vector2(864, 32)
-
-[node name="toggleHouse" type="Button" parent="MapLayer/MapOptionButtons"]
-visibility_layer = 7
-z_index = 4
-offset_left = 1.14441e-05
-offset_top = 40.0
-offset_right = 112.0
-offset_bottom = 71.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "House"
-metadata/_edit_use_anchors_ = true
-
-[node name="toggleGrid" type="Button" parent="MapLayer/MapOptionButtons"]
-visibility_layer = 7
-z_index = 4
-offset_left = 1.14441e-05
-offset_top = 96.0
-offset_right = 112.0
-offset_bottom = 127.0
-text = "Grid"
-metadata/_edit_use_anchors_ = true
-
-[node name="toggleNames" type="Button" parent="MapLayer/MapOptionButtons"]
-visibility_layer = 7
-z_index = 4
-offset_left = 128.0
-offset_top = 40.0
-offset_right = 240.0
-offset_bottom = 71.0
-text = "Names"
-metadata/_edit_use_anchors_ = true
-
-[node name="toggleBoundaries" type="Button" parent="MapLayer/MapOptionButtons"]
-visibility_layer = 7
-z_index = 4
-offset_left = 128.0
-offset_top = 96.0
-offset_right = 240.0
-offset_bottom = 127.0
-text = "Boundaries"
-metadata/_edit_use_anchors_ = true
-
-[node name="toggleLegend" type="Button" parent="MapLayer/MapOptionButtons"]
-visibility_layer = 7
-z_index = 4
-offset_left = 256.0
-offset_top = 40.0
-offset_right = 368.0
-offset_bottom = 71.0
-text = "POIs"
-metadata/_edit_use_anchors_ = true
-
-[node name="toggleSafeSpots" type="Button" parent="MapLayer/MapOptionButtons"]
-visibility_layer = 7
-z_index = 4
-offset_left = 256.0
-offset_top = 96.0
-offset_right = 368.0
-offset_bottom = 127.0
-text = "Safe Spots"
-metadata/_edit_use_anchors_ = true
-
-[node name="ToggleMapLayers" type="RichTextLabel" parent="MapLayer/MapOptionButtons"]
-z_index = 4
-anchors_preset = -1
-anchor_left = -0.0246154
-anchor_top = -0.259259
-anchor_right = -0.0246154
-anchor_bottom = -0.259259
-offset_top = -8.0
-offset_right = 156.0
-offset_bottom = 20.0
-text = "Toggle Map Layers"
-metadata/_edit_use_anchors_ = true
 
 [node name="current_map" type="Node" parent="MapLayer"]
 
@@ -197,6 +124,7 @@ layer = 3
 [node name="normal" type="Node" parent="anchors"]
 
 [node name="smudge_anchor" type="Node2D" parent="anchors/normal"]
+visible = false
 position = Vector2(64, 24)
 
 [node name="select_map_anchor" type="Node2D" parent="anchors/normal"]
@@ -224,6 +152,7 @@ visible = false
 position = Vector2(1112, 200)
 
 [node name="create_range_anchor2" type="Node2D" parent="anchors/normal"]
+visible = false
 position = Vector2(1024, 320)
 
 [node name="mirror" type="Node" parent="anchors"]
@@ -269,9 +198,3 @@ metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="UILayer/option_button" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UILayer/how_to_button" to="." method="_on_how_to_use_pressed"]
-[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleHouse" to="." method="_on_toggle_house_pressed"]
-[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleGrid" to="." method="_on_toggle_grid_pressed"]
-[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleNames" to="." method="_on_toggle_names_pressed"]
-[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleBoundaries" to="." method="_on_toggle_boundaries_pressed"]
-[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleLegend" to="." method="_on_toggle_legend_pressed"]
-[connection signal="pressed" from="MapLayer/MapOptionButtons/toggleSafeSpots" to="." method="_on_toggle_safe_spots_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgbg6vhvf2jsv"]
+[gd_scene load_steps=3 format=3 uid="uid://cgbg6vhvf2jsv"]
 
 [ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/MapSelect.gd" id="1_gucdw"]
+[ext_resource type="StyleBox" uid="uid://b2xsuu4wos7fc" path="res://Scenes/UI_Scenes/Resources/button_normal.tres" id="2_ii2su"]
 
 [node name="MapSelect" type="Control"]
 layout_mode = 3
@@ -32,6 +33,7 @@ anchor_right = 0.983333
 anchor_bottom = 1.53436
 offset_right = -1.52588e-05
 offset_bottom = -0.0240021
+theme_override_styles/normal = ExtResource("2_ii2su")
 text = "Load Map"
 metadata/_edit_use_anchors_ = true
 
@@ -78,6 +80,7 @@ anchors_preset = -1
 offset_top = 104.0
 offset_right = 62.0
 offset_bottom = 135.0
+theme_override_styles/normal = ExtResource("2_ii2su")
 text = "Clear"
 
 [connection signal="pressed" from="MapLoad" to="." method="_on_map_load_pressed"]

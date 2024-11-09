@@ -1,17 +1,39 @@
 extends Node2D
 
+var zoom_factor = 1.0
+var min_zoom = 0.5
+var max_zoom = 10.0
+var dragging = false
+var drag_start = Vector2()
+var currently_dragging = false
+var panning = false
+
+@onready var house_container = $house_container
+
 signal set_zoom_string(zoom)
 
-@onready var MapRangeCircles = $RangeCircles
-@onready var house_layer = $HouseLayer
-@onready var nodeHouse = $HouseLayer/House
-@onready var nodeRooms = $HouseLayer/Rooms
-@onready var nodeNames = $HouseLayer/Names
-@onready var nodeGrid = $HouseLayer/Grid
-@onready var nodePOI = $HouseLayer/POI
-@onready var node1mLeft = $HouseLayer/m_left
-@onready var node1mRight = $HouseLayer/m_right
-@onready var safe_spots = $HouseLayer/SafeSpots
+@onready var MapRangeCircles = $%RangeCircles
+@onready var house_layer = $%HouseLayer
+@onready var nodeHouse = $%House
+@onready var nodeRooms = $%Rooms
+@onready var nodeNames = $%Names
+@onready var nodeGrid = $%Grid
+@onready var nodePOI = $%POI
+@onready var safe_spots = $%SafeSpots
+
+@onready var node1mLeft = $%m_left
+@onready var node1mRight = $%m_right
+
+
+@onready var button_mapping = {
+	"house": nodeHouse,
+	"rooms": nodeRooms,
+	"names": nodeNames,
+	"grid": nodeGrid,
+	"legend": nodePOI,
+	"safe_spots": safe_spots
+}
+
 
 
 @onready var house_properties = {
@@ -86,7 +108,6 @@ signal set_zoom_string(zoom)
 
 var mDistance
 
-var panning = false
 var map_fresh_pan = true
 var start_mouse_position = Vector2()
 
@@ -94,6 +115,10 @@ signal mapToggle
 
 var blankCircle = preload("res://Scenes/Distance_Scenes/BlankCircle.tscn")
 	
+	
+func _ready():
+	set_process_input(true)
+
 func update_1m_measurement():
 	mDistance = node1mRight.global_position.x - node1mLeft.global_position.x
 	print("1m Pixel Distamce = " + str(mDistance))
@@ -118,6 +143,11 @@ func toggle_legend():
 func toggle_safe_spots():
 	safe_spots.visible = !safe_spots.visible
 
+# This ended up not working.  I want to figure out why, so I don't have to deal with the above shit.
+func toggle_layer(layer_name: String):
+	print("House Layer Received: " + layer_name)
+	button_mapping[layer_name].visible != button_mapping[layer_name].visible
+	
 func get_1m_distance():
 	return mDistance
 
@@ -128,44 +158,64 @@ func get_1m_distance():
 # because zooming from (0,0) blows
 ###########
 
-func zoom_in():
-	if self.scale.x < 5:
-		self.scale += Vector2(zoom_scale,zoom_scale)
-	update_zoom_string()	
+func update_zoom(mouse_position, old_zoom):
+	var offset = mouse_position - house_container.global_position
+	offset /= old_zoom
 	
-	#start_mouse_position = get_global_mouse_position()
-	#var mouse_offset = start_mouse_position - self.position
-	#self.position -= mouse_offset * (zoom_scale -1.0)
-	#self.position = start_mouse_position - (start_mouse_position - self.position) * zoom_scale
+	house_container.scale = Vector2(zoom_factor,zoom_factor)
+	
+	offset *= zoom_factor
+	house_container.global_position = mouse_position - offset
+
+func zoom_in():
+	#if self.scale.x < 5:
+		#self.scale += Vector2(zoom_scale,zoom_scale)
+	#update_zoom_string()	
+	
+	var old_zoom = zoom_factor
+	zoom_factor = clamp(zoom_factor * 1.1, min_zoom, max_zoom)
+	update_zoom(get_global_mouse_position(),old_zoom)
+	update_zoom_string()
+
 	
 func zoom_out():
-	if self.scale.x > 0.1:
-		self.scale -= Vector2(zoom_scale,zoom_scale)
+	#if self.scale.x > 0.1:
+		#self.scale -= Vector2(zoom_scale,zoom_scale)
+	#update_zoom_string()
+	
+	var old_zoom = zoom_factor
+	zoom_factor = clamp(zoom_factor * 0.9, min_zoom, max_zoom)
+	update_zoom(get_global_mouse_position(),old_zoom)
 	update_zoom_string()
 	
-	#start_mouse_position = get_global_mouse_position()
-	#var mouse_offset = start_mouse_position - self.position
-	#self.position -= mouse_offset * (zoom_scale -1.0)
-	#self.position = start_mouse_position - (start_mouse_position - self.position) * zoom_scale
 	
 func update_zoom_string():
-	set_zoom_string.emit(snapped(self.scale.x,0.01))
+	set_zoom_string.emit(snapped(house_container.scale.x,0.01))
 
 func pan_map():
-	if map_fresh_pan:
-		panning = true
-		map_fresh_pan = false
-		start_mouse_position = get_global_mouse_position()
+	#if map_fresh_pan:
+		#panning = true
+		#map_fresh_pan = false
+		#start_mouse_position = get_global_mouse_position()
+		
+	#if panning:
+		#var delta = start_mouse_position - get_global_mouse_position()
+		#self.global_position -= delta
+		##house_layer.global_position -= delta
+		#start_mouse_position = get_global_mouse_position()
 		
 	if panning:
-		var delta = start_mouse_position - get_global_mouse_position()
-		self.global_position -= delta
-		#house_layer.global_position -= delta
-		start_mouse_position = get_global_mouse_position()
+		var delta = drag_start - get_global_mouse_position()
+		house_container.global_position -= delta
+		drag_start = get_global_mouse_position()
+	elif !panning:
+		panning = true
+		drag_start = get_global_mouse_position()
+		
 
 func stop_panning():
 	panning = false
-	map_fresh_pan = true
+	#map_fresh_pan = true
 
 func create_range(range_radius,color):
 	var instRange = blankCircle.instantiate()
@@ -202,7 +252,7 @@ func set_graphics(house):
 	nodeGrid.texture = load("res://Maps/Fantismal/"+ house + "/Grid.png")
 	nodePOI.texture = load("res://Maps/Fantismal/"+ house + "/POI.png")
 	nodeNames.texture = load("res://Maps/Fantismal/"+ house + "/Names.png")
-	if(house == "13 Willow St" || house == "6 Tanglewood"):
+	if(house != "Training Warehouse"):
 		safe_spots.texture = load("res://Maps/Fantismal/"+ house + "/Safe_Spots.png")
 	else:
 		safe_spots.texture = null

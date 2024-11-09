@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://drs76sv3dkksq"]
+
+[ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/map_option_buttons.gd" id="1_7oxap"]
+[ext_resource type="PackedScene" uid="uid://dbd4ew5ix2kdy" path="res://Scenes/UI_Scenes/toggle_button.tscn" id="2_fxxn2"]
+
+[node name="MapOptionButtons" type="Node2D"]
+position = Vector2(0, 8)
+script = ExtResource("1_7oxap")
+
+[node name="ToggleMapLayers" type="RichTextLabel" parent="."]
+z_index = 4
+anchors_preset = -1
+anchor_left = -0.0246154
+anchor_top = -0.259259
+anchor_right = -0.0246154
+anchor_bottom = -0.259259
+offset_top = -8.0
+offset_right = 156.0
+offset_bottom = 20.0
+text = "Toggle Map Layers"
+metadata/_edit_use_anchors_ = true
+
+[node name="toggleHouse" parent="." instance=ExtResource("2_fxxn2")]
+unique_name_in_owner = true
+offset_top = 40.0
+offset_bottom = 71.0
+text = "House"
+
+[node name="toggleGrid" parent="." instance=ExtResource("2_fxxn2")]
+offset_top = 96.0
+offset_bottom = 127.0
+text = "Grid"
+
+[node name="toggleNames" parent="." instance=ExtResource("2_fxxn2")]
+offset_left = 128.0
+offset_top = 40.0
+offset_right = 240.0
+offset_bottom = 71.0
+text = "Names"
+
+[node name="toggleBoundaries" parent="." instance=ExtResource("2_fxxn2")]
+offset_left = 128.0
+offset_top = 96.0
+offset_right = 240.0
+offset_bottom = 127.0
+text = "Boundaries"
+
+[node name="toggleLegend" parent="." instance=ExtResource("2_fxxn2")]
+offset_left = 256.0
+offset_top = 40.0
+offset_right = 368.0
+offset_bottom = 71.0
+text = "POIs"
+
+[node name="toggleSafeSpots" parent="." instance=ExtResource("2_fxxn2")]
+offset_left = 256.0
+offset_top = 96.0
+offset_right = 368.0
+offset_bottom = 127.0
+text = "Safe Spots"

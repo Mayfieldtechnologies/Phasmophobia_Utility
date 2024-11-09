@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2olnbe50ltxv"]
+[gd_scene load_steps=4 format=3 uid="uid://b2olnbe50ltxv"]
 
 [ext_resource type="Script" path="res://Scenes/UI_Scenes/Scripts/range_create.gd" id="1_ojy7k"]
+[ext_resource type="StyleBox" uid="uid://b2xsuu4wos7fc" path="res://Scenes/UI_Scenes/Resources/button_normal.tres" id="2_5rqpg"]
+[ext_resource type="StyleBox" uid="uid://ch0v5hktg0pgs" path="res://Scenes/UI_Scenes/Resources/button_pressed.tres" id="3_04m2p"]
 
 [node name="RangeCreate" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_top = -1.0
-offset_right = 288.0
-offset_bottom = 119.0
+offset_right = 305.0
+offset_bottom = 136.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_ojy7k")
@@ -52,9 +54,9 @@ popup/item_12/id = 0
 [node name="RangeSelectHeader" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_right = 156.0
+offset_right = 191.0
 offset_bottom = 28.0
-text = "Create Range Circle"
+text = "Select Detection Range"
 
 [node name="RangeCreate" type="Button" parent="."]
 layout_mode = 1
@@ -63,6 +65,8 @@ offset_left = 240.0
 offset_top = 104.0
 offset_right = 303.0
 offset_bottom = 135.0
+theme_override_styles/normal = ExtResource("2_5rqpg")
+theme_override_styles/pressed = ExtResource("3_04m2p")
 text = "Create"
 
 [node name="RangeColor" type="ColorPickerButton" parent="."]
@@ -80,6 +84,8 @@ anchors_preset = -1
 offset_top = 104.0
 offset_right = 62.0
 offset_bottom = 135.0
+theme_override_styles/normal = ExtResource("2_5rqpg")
+theme_override_styles/pressed = ExtResource("3_04m2p")
 text = "Clear"
 
 [node name="RangeCircles" type="CanvasLayer" parent="."]

@@ -62,7 +62,8 @@ func _ready():
 	MapSelect.loadMap.connect(_load_map_button_pressed)
 	MapSelect.clearMap.connect(_clear_map_button_pressed)
 	RangeCreate.CreateRange.connect(_on_range_create)
-	
+	map_option_buttons.layer_toggled.connect(_on_layer_toggled)
+	map_option_buttons.set_can_toggle(false)
 	#######
 	# Dev Note: 01-09-24
 	# I am trying to figure out how to easily control the color via code.
@@ -118,6 +119,8 @@ func _load_map_button_pressed():
 	
 	# Set instMap's default properties
 	instMap.set_default_properties(selected_map_value)
+	
+	map_option_buttons.set_can_toggle(true)
 
 # Opens the option scene
 func _on_options_pressed():
@@ -257,6 +260,7 @@ func _clear_map_button_pressed():
 		instMap.queue_free()
 		MapPlaceholder.visible = true
 		MapSelect.reset_dropdown()
+		map_option_buttons.set_can_toggle(false)
 
 func _set_zoom_string(zoom):
 	zoom_level.text = "Zoom: " + str(zoom*100) + "%"
@@ -265,3 +269,8 @@ func _set_zoom_string(zoom):
 func _on_toggle_safe_spots_pressed():
 	if(instMap != null):
 		instMap.toggle_safe_spots()
+		
+func _on_layer_toggled(layer_name: String):
+	#instMap.toggle_layer(layer_name)
+	if instMap != null:
+		instMap.call("toggle_" + layer_name)

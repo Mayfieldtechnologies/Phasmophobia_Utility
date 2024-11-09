@@ -1,10 +1,9 @@
 res://Scenes/UI_Scenes/main.tscn
 res://Scenes/UI_Scenes/Timer.gdshader
 res://Shaders/burn_text.gdshader
-res://Scenes/UI_Scenes/hunt_timer.tscn
+res://Scenes/UI_Scenes/Scripts/Timer_new.gd
+res://Scenes/UI_Scenes/Timer.tscn
 res://Scenes/Fantismal Maps/House.tscn
-res://Scenes/UI_Scenes/range_create.tscn
-res://Scenes/Distance_Scenes/BlankCircle.tscn
-res://Scenes/UI_Scenes/map_select.tscn
-res://Scenes/Map_Scenes/6Tanglewood.tscn
-res://Scenes/UI_Scenes/Scripts/options.gd
+res://Scenes/UI_Scenes/map_option_buttons.tscn
+res://Scenes/UI_Scenes/toggle_button.tscn
+res://Scenes/UI_Scenes/how_to_use.tscn
